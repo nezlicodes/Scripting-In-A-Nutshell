@@ -23,4 +23,5 @@ do
        	read -p "Oops, it looks like you are not typing the correct command. Type "date" " dir2
 done
 printf "${GREEN}$(date)\n${NC}"
-printf "Wow "$userame" you learn so fast.\n"
+echo "Wow "$username" you learn so fast."
+
