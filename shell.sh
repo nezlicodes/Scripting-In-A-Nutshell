@@ -47,7 +47,7 @@ while [[ $dir3 != "ls"  ]]
 do
 	read -p "Please, type in the command $(tput setaf 1) 'ls' $(tput sgr0) " dir3
 done
-printf "${GREEN}$(ls)${NC}"
+printf "${GREEN}$(ls -C)${NC}"
 printf "\n Cool "$username"\n"
 sleep 1
 printf "The ls command lists all files and directories in your current folder.\n"
@@ -74,5 +74,5 @@ read -p "Try it now. Type $(tput setaf 1) 'ls -a' $(tput sgr0) " dir5
 while [[ $dir5 != 'ls -a'  ]]
 do
 	read -p "Please "$username", type in the command $(tput setaf 1)  'ls -a' $(tput sgr0) " dir5
-	done
-	printf "${GREEN}$(ls -a)${NC}"
+done
+printf "${GREEN}$(ls -a)${NC}\n"
