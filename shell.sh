@@ -61,3 +61,17 @@ do
 	read -p "Enter: 'ls -l' " dir4
 done
 printf "${GREEN}$(ls -l)\n${NC}"
+sleep 1
+printf "As you can see, you have now a list of all files and directories\n"
+printf "with many details. Among those, Date and size\n"
+sleep 1
+printf "Now, there is a secret file in this folder that starts with '.'\n"
+printf "By default, the ls command does not list files that start with '.'\n"
+sleep 1
+printf "To list it, you have to pass in the option '-a' to the ls command\n"
+read -p "Try it now. Type 'ls -a' " dir5
+while [[ $dir5 != 'ls -a'  ]]
+do
+	        read -p "Please "$username", type in the command  'ls -a' " dir5
+	done
+	printf "${GREEN}$(ls -a)${NC}"
