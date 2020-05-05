@@ -6,7 +6,7 @@ printf "Hey, welcome in learn_shell. A program that teaches about shell scriptin
 read -p "what may I call you? " username
 echo "okay "$username" let's get started!"
 printf "\nFirst, let's check where we are in time and space.\n"
-read -p " To check in which directory you are, type the command "pwd" " dir1
+read -p "To check in which directory you are, type the command "pwd" " dir1
 
 while [[ $dir1 != "pwd" ]]
 do
@@ -22,5 +22,5 @@ while [[ $dir2 != "date" ]]
 do
        	read -p "Oops, it looks like you are not typing the correct command. Type "date" " dir2
 done
-printf "$(date)\n"
+printf "${RED}$(date)\n${NC}"
 printf "Wow "$userame" you learn so fast.\n"
