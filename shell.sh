@@ -1,4 +1,6 @@
 #!/bin/bash
+RED='\033[0;31m'
+NC='\033[0m'
 dir=$(pwd)
 printf "Hey, welcome in learn_shell. A program that teaches about shell scripting inside the shell.\n"
 read -p "what may I call you? " username
@@ -10,7 +12,7 @@ while [[ $dir1 != "pwd" ]]
 do
 	read -p "To check in which directory you are, type the command "pwd" " dir1
 done
-printf "$(pwd)"
+printf "${RED}$(pwd)${NC}"
 
 printf "\nAwesome, you did well\n"
 printf "So, your current directory is "$dir"\n"
