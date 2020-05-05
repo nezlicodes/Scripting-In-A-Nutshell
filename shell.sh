@@ -1,5 +1,5 @@
 #!/bin/bash
-RED='\033[0;31m'
+GREEN='\033[0;33m'
 NC='\033[0m'
 dir=$(pwd)
 printf "Hey, welcome in learn_shell. A program that teaches about shell scripting inside the shell.\n"
@@ -12,7 +12,7 @@ while [[ $dir1 != "pwd" ]]
 do
 	read -p "To check in which directory you are, type the command "pwd" " dir1
 done
-printf "${RED}$(pwd)${NC}"
+printf "${GREEN}$(pwd)${NC}"
 
 printf "\nAwesome, you did well\n"
 printf "So, your current directory is "$dir"\n"
@@ -22,5 +22,5 @@ while [[ $dir2 != "date" ]]
 do
        	read -p "Oops, it looks like you are not typing the correct command. Type "date" " dir2
 done
-printf "${RED}$(date)\n${NC}"
+printf "${GREEN}$(date)\n${NC}"
 printf "Wow "$userame" you learn so fast.\n"
