@@ -12,7 +12,7 @@ printf "\t - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n"
 sleep 1
 read -p " Press enter key to continue "
 read -p " What may I call you? " username
-echo "okay "$username" let's get started!"
+echo " Okay "$username" let's get started!"
 ## PWD
 printf "First, let's check where we are in time and space."
 read -p " " any
