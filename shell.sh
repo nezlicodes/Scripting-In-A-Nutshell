@@ -27,7 +27,7 @@ else
 	then
 		        read -p " Okay "$username" let's get started! "
 		else
-			username="Shy guest"
+			username="Shy Guest"
 			read -p " Okay, then I will just call you Shy Guest. "
 		fi
 	fi
