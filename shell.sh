@@ -67,16 +67,34 @@ read -p " " any
 printf "As you can see, you have now a list of all files and directories\n"
 printf "with many details. Among those, Date and size\n"
 read -p " " any
-printf "Now, there is a secret file in this folder that starts with '.'\n"
-printf "By default, the ls command does not list files that start with '.'\n"
-read -p " " any
-printf "To list it, you have to pass in the option -a to the ls command\n"
+read -p "Let'navigate to the empty_folder directory to see if it is truely empty."
+read -p "We will use the change directory or cd command. Type $(tput setaf 1) cd empty_folder $(tput sgr0) " dir4
+while [[ $dir4 != 'cd empty_folder' ]]
+do
+	read -p "Enter: $(tput setaf 1) cd empty_folder $(tput sgr0)" dir4
+done
+printf "${GREEN}$(pwd)/empty_folder\n${NC}"
+read -p "Awesome."
+
+read -p "It's your turn to show me what you can do. List the content this folder based on what you learned so far: " dir
+while [[ $dir != 'ls' ]]
+	do 
+		read -p "The correct command is: $(tput setaf 1) ls $(tput sgr0)" dir
+done 
+printf "${GREEN}$(ls empty_folder)\n${NC}" 
+
+read -p "It looks like the folder is truely empty."
+read -p "Or is it ?"
+read -p "The truth is that there is a secret file in this folder.\n"
+read -p "By default, the ls command does not list files that start with '.' (called dot files).\n"
+read -p "To list it, you have to pass in the option -a to the ls command\n"
 read -p "Try it now. Type $(tput setaf 1) 'ls -a' $(tput sgr0) " dir5
 while [[ $dir5 != 'ls -a'  ]]
 do
 	read -p	"Please, type $(tput setaf 1) 'ls -a' $(tput sgr0) " dir5
 done
-printf "${GREEN}$(ls -Ca)${NC}\n"
+printf "${GREEN}$(ls -Ca empty_folder)${NC}\n"
+
 
 #READING FILES AND EXAMINING FILES
 printf "I bet now you want to know what kind of dark secret is hidden\n"
