@@ -46,18 +46,16 @@ read -p " Awesome!"
 read -p " ${RED}pwd${RESET} stands for print working directory, it displays the full path of your directory."
 
 ## Date 
-read -p "So, your current directory is $(pwd)"
-read -p " " any
-printf "Let's check now what time is it"
-read -p " " any
-read -p "To do so, type: $(tput setaf 1) date $(tput sgr0) " dir2
-while [[ $dir2 != "date" ]]
+read -p " Let's check now what time is it."
+printf " To do so, type: ${RED}date${RESET}\n\t$ "
+read -p "" dir
+while [[ $dir != "date" ]]
 do
-	read -p "Oops, it looks like you are not typing the correct command. Type $(tput setaf 1) date $(tput sgr0) " dir2
+	printf " Type ${RED}date${RESET}\n\t$ "
+	read -p "" dir
 done 
-printf "${GREEN}$(date)\n${NC}\n" 
-read -p " " any
-echo "Wow "$username" you learn so fast."
+printf "  \t>${GREEN}$(date)\n${NC}\n" 
+read -p " Wow $username you learn so fast."
 
 ## Ls
 read -p " " any
