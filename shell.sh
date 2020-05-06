@@ -9,9 +9,7 @@ PID=$!
 printf "Hey, welcome in learn_shell. A program that teaches about shell scripting inside the shell.\n"
 read -p "Press any key to continue " any
 read -p "what may I call you? " username
-(sleep 1) 
 echo "okay "$username" let's get started!"
-(sleep 1)
 ## PWD
 printf "First, let's check where we are in time and space."
 read -p " " any
