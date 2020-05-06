@@ -5,17 +5,21 @@ CC='\033[0;35m'
 NC='\033[0m'
 dir=$(pwd)
 PID=$!
+
 ##Welcome and username
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - -\n"
-printf "\t   Welcome in learn_shell. A program built by the digital-codon\n\t   platform, that teaches shell scripting inside the shell.\n"
+printf "\t   Welcome to learn_shell. A program built by the digital-codon\n\t   platform, that teaches shell scripting inside the shell.\n"
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n"
 sleep 1
 read -p " Press enter key to continue "
 read -p " What may I call you? " username
-echo " Okay "$username" let's get started!"
+read -p " Okay "$username" let's get started! "
+read -p " Whenever you want to move foreward, type Enter. "
+read -p " If you want to exit the program, press control + c. "
+read -p " Ready to start gaining new skills? "
+
 ## PWD
-printf "First, let's check where we are in time and space."
-read -p " " any
+read -p " First, let's check where we are in time and space."
 read -p "To check in which directory you are, type the command $(tput setaf 1) pwd $(tput sgr0) " dir1
 
 while [[ $dir1 != "pwd" ]]
