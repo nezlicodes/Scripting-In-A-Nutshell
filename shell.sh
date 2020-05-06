@@ -78,8 +78,7 @@ do
 done
 printf "${GREEN}$(ls -Ca)${NC}\n"
 
-#READING FILES
-
+#READING FILES AND EXAMINING FILES
 printf "I bet now you want to know what kind of dark secret is hidden\n"
 printf "in the .secret file, don't you?\n"
 printf "Well, that's good because you are about to learn how to examine a file\n"
@@ -113,7 +112,7 @@ do
 	        read -p "Please enter:  $(tput setaf 1) head dna.txt $(tput sgr0) " dir7
 done
 printf "${GREEN}$(head dna.txt)${NC}\n"
-read -p "That's much cleaner, right?"
+read -p "That's much cleaner, right?" 
 read -p "The $(tput setaf 1)head$(tput sgr0) command accepts some options."
 read -p "You can for example chose how many lines you want to read with the $(tput setaf 1)-n$(tput sgr0) option"
 read -p "To print the first 3 lines of your file, enter  $(tput setaf 1)head -n3$(tput sgr0) " dir9
@@ -122,6 +121,12 @@ do
 	read -p "Type:  $(tput setaf 1) head -n3 dna.txt $(tput sgr0) " dir9
 done
 printf "${GREEN}$(head -n3 dna.txt)${NC}\n"
+read -p "Alternatively, you can check the tail of your file using the  $(tput setaf 1) tail dna.txt $(tput sgr0)" dir12
+while [[ $dir12 != 'tail dna.txt' ]]
+do
+	        read -p "Please enter:  $(tput setaf 1) tail dna.txt $(tput sgr0) " dir12
+done
+printf "${GREEN}$(tail dna.txt)${NC}\n"
 read -p "There are other widely used commands to read files that I will let you explore on your own."
 read -p "For now, let's continue exploring our files. "
 read -p "You just saw that dna.txt was a pretty long file.  "
@@ -136,6 +141,7 @@ read -p "The output tells you your file contains $(cat dna.txt | wc) words"
 read -p "You can also check how many lines are in the file: with the option -l: $(tput setaf 1 )wc -l dna.txt$(tput sgr0)" dir11
 while [[ $dir11 != 'wc-l dna.txt' ]]
 do
-	read -p "Please enter:  $(tput setaf 1) wc -l dna.txt $(tput sgr0) " dir11d
+	read -p "Please enter:  $(tput setaf 1) wc -l dna.txt $(tput sgr0) " dir11
 done
 printf "${GREEN}$(wc -l dna.txt)${NC}\n"
+
