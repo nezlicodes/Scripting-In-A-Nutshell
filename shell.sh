@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+
 GREEN='\033[0;33m'
 CC='\033[0;35m'
 NC='\033[0m'
@@ -6,15 +7,14 @@ dir=$(pwd)
 PID=$!
 ##Welcome and username
 printf "Hey, welcome in learn_shell. A program that teaches about shell scripting inside the shell.\n"
-sleep 2
-read -p "Press any key to continue " 
+read -p "Press any key to continue " any
 read -p "what may I call you? " username
 (sleep 1) 
 echo "okay "$username" let's get started!"
 (sleep 1)
 ## PWD
 printf "First, let's check where we are in time and space."
-read -p " " 
+read -p " " any
 read -p "To check in which directory you are, type the command $(tput setaf 1) pwd $(tput sgr0) " dir1
 
 while [[ $dir1 != "pwd" ]]
@@ -25,24 +25,24 @@ printf "${GREEN}$(pwd)${NC}\n"
 printf "Awesome, you did well"
 (sleep 1) 
 ## Date
-read -p ""
+read -p " " any
 printf "So, your current directory is "$dir""
-read -p "" 
+read -p " " any
 printf "Let's check now what time is it"
-read -p ""
+read -p " " any
 read -p "To do so, type: $(tput setaf 1) date $(tput sgr0) " dir2
 while [[ $dir2 != "date" ]]
 do
 	read -p "Oops, it looks like you are not typing the correct command. Type $(tput setaf 1) date $(tput sgr0) " dir2
 done 
 printf "${GREEN}$(date)\n${NC}\n" 
-read -p " "
+read -p " " any
 echo "Wow "$username" you learn so fast."
 
 ## Ls
-read -p " "
+read -p " " any
 printf "There is a bunch of files and folders in this directory. let's check them\n"
-read -p " "
+read -p " " any
 read -p  "To list all files, type the command  $(tput setaf 1) ls  $(tput sgr0)" dir3
 while [[ $dir3 != "ls"  ]]
 do
@@ -54,31 +54,88 @@ sleep 1
 printf "The ls command lists all files and directories in your current folder.\n"
 sleep 1
 printf "Like all unix commands, ls commes with a handful of useful options you can use.\n"
-read -p ""
+read -p " " any
 printf "Let's say for example you want more details about the files in this directory\n"
-read -p ""
+read -p " " any
 read -p "In order to do so, type $(tput setaf 1) ls -l $(tput sgr0) " dir4
 while [[ $dir4 != 'ls -l' ]]
 do 
 	read -p "Enter: $(tput setaf 1) ls -l $(tput sgr0) " dir4
 done
 printf "${GREEN}$(ls -l)\n${NC}"
-read -p ""
+read -p " " any
 printf "As you can see, you have now a list of all files and directories\n"
 printf "with many details. Among those, Date and size\n"
-read -p ""
+read -p " " any
 printf "Now, there is a secret file in this folder that starts with '.'\n"
 printf "By default, the ls command does not list files that start with '.'\n"
-read -p ""
+read -p " " any
 printf "To list it, you have to pass in the option -a to the ls command\n"
 read -p "Try it now. Type $(tput setaf 1) 'ls -a' $(tput sgr0) " dir5
 while [[ $dir5 != 'ls -a'  ]]
 do
-	read -p "Please "$username", type in the command $(tput setaf 1)  ls -a $(tput sgr0) " dir5
+	read -p	"Please, type $(tput setaf 1) 'ls -a' $(tput sgr0) " dir5
 done
-printf "${GREEN}$(ls -a)${NC}\n"
+printf "${GREEN}$(ls -Ca)${NC}\n"
 
+#READING FILES
 
-bye() {
-	echo "hi"
-}
+printf "I bet now you want to know what kind of dark secret is hidden\n"
+printf "in the .secret file, don't you?\n"
+printf "Well, that's good because you are about to learn how to examine a file\n"
+read -p "Ready ? " any
+printf "To read the content of a file, you have to execute the command $(tput setaf 1) cat filename $(tput sgr0)\n"
+sleep 1
+read -p "Type $(tput setaf 1) cat .secret $(tput sgr0)" dir6
+while [[ $dir6 != 'cat .secret' ]]
+do
+	read -p "Please enter:  $(tput setaf 1) cat .secret $(tput sgr0) " dir6
+done
+printf "${GREEN}$(cat .secret)${NC}\n"
+sleep 1
+printf "You're doing good!"
+read -p " " any
+read -p "There many other commands to examine files that we are going to learn about. "
+read -p "Most of the times though, your files are too long to be printed all at once."
+read -p "try for example to read the file 'dna.txt' using the $(tput setaf 1)cat$(tput sgr0) command" dir8
+while [[ $dir8 != 'cat dna.txt' ]]
+do
+	read -p "Type:  $(tput setaf 1) cat dna.txt $(tput sgr0) " dir8
+done
+printf "${GREEN}$(cat dna.txt)${NC}\n"
+read -p "Wow, pretty long right? "
+read -p "Let's say you want to check the first lines of the file only."
+read -p "There is a special command that allows you to do just that."
+printf "Let's check the head of the file dna.txt.\n"
+read -p "Type $(tput setaf 1) head dna.txt $(tput sgr0)" dir7
+while [[ $dir7 != 'head dna.txt' ]]
+do
+	        read -p "Please enter:  $(tput setaf 1) head dna.txt $(tput sgr0) " dir7
+done
+printf "${GREEN}$(head dna.txt)${NC}\n"
+read -p "That's much cleaner, right?"
+read -p "The $(tput setaf 1)head$(tput sgr0) command accepts some options."
+read -p "You can for example chose how many lines you want to read with the $(tput setaf 1)-n$(tput sgr0) option"
+read -p "To print the first 3 lines of your file, enter  $(tput setaf 1)head -n3$(tput sgr0) " dir9
+while [[ $dir9 != 'head -n3 dna.txt' ]]
+do
+	read -p "Type:  $(tput setaf 1) head -n3 dna.txt $(tput sgr0) " dir9
+done
+printf "${GREEN}$(head -n3 dna.txt)${NC}\n"
+read -p "There are other widely used commands to read files that I will let you explore on your own."
+read -p "For now, let's continue exploring our files. "
+read -p "You just saw that dna.txt was a pretty long file.  "
+read -p "But how many word exactly does it contain? "
+read -p "To answer this question, we use the word count or wc command: $(tput setaf 1 )wc dna.txt$(tput sgr0)" dir10
+while [[ $dir10 != 'wc dna.txt' ]]
+do
+	read -p "Please enter:  $(tput setaf 1) wc dna.txt $(tput sgr0) " dir10
+done
+printf "${GREEN}$(wc dna.txt)${NC}\n"
+read -p "The output tells you your file contains $(cat dna.txt | wc) words"
+read -p "You can also check how many lines are in the file: with the option -l: $(tput setaf 1 )wc -l dna.txt$(tput sgr0)" dir11
+while [[ $dir11 != 'wc-l dna.txt' ]]
+do
+	read -p "Please enter:  $(tput setaf 1) wc -l dna.txt $(tput sgr0) " dir11d
+done
+printf "${GREEN}$(wc -l dna.txt)${NC}\n"
