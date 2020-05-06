@@ -21,6 +21,7 @@ while [[ $dir1 != "pwd" ]]
 do
 	read -p "To check in which directory you are, type the command  $(tput setaf 1) pwd $(tput sgr0) " dir1
 done
+
 printf "${GREEN}$(pwd)${NC}\n" 
 printf "Awesome, you did well"
 (sleep 1) 
@@ -109,10 +110,19 @@ do
 	read -p "Please enter:  $(tput setaf 1) cat .secret $(tput sgr0) " dir6
 done
 printf "${GREEN}$(cat empty_folder/.secret)${NC}\n"
-sleep 1
-printf "You're doing good!"
-read -p " " any
-read -p "There many other commands to examine files that we are going to learn about. "
+read -p "Spooky."
+
+read -p "Let's do some more exiting work now with our dna.txt file. "
+read -p "First, we need to navigate back to the parent directory. "
+read -p "Type the command $(tput setaf 1)cd . $(tput sgr0)" dir
+while [[ $dir != 'cd .' ]]
+do
+	read -p "Please enter:  $(tput setaf 1)cd .$(tput sgr0) " dir
+done
+printf "${GREEN}$(pwd)${NC}\n"
+read -p "Good."
+
+read -p "We juat learned about the $(tput setaf 1)cat$(tput sgr0) that allows you to read a file."
 read -p "Most of the times though, your files are too long to be printed all at once."
 read -p "try for example to read the file 'dna.txt' using the $(tput setaf 1)cat$(tput sgr0) command" dir8
 while [[ $dir8 != 'cat dna.txt' ]]
