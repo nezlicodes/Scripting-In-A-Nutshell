@@ -14,7 +14,7 @@ printf "\t   Welcome to learn_shell. A program built by the digital-codon\n\t   
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n"
 printf "Instructions:\n"
 read -p " Press ${RED}enter${RESET} whenever you are ready to continue. "
-printf " You can press ${RED}control + c${RESET} whenever you want to exit the program.\n"
+printf " You can press ${RED}control + c${RESET} whenever you want to exit the program.\n\t$ "
 read -p " Got it? "
 read -p " Cool ! "
 read -p " By the way, what may I call you? " username
@@ -58,7 +58,7 @@ read -p " Wow $username you learn so fast."
 
 ## Ls
 read -p " Now, there are a bunch of files and folders in this directory. Let's explore them."
-read -p  " To list all files, we use the ${RED}ls${RESET} command. "
+read -p  " To list all files, we use the ${RED}ls${RESET} command.\n\t$ "
 printf " Type ${RED}ls${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != "ls"  ]]
