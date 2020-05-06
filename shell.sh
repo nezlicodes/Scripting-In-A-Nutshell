@@ -6,7 +6,10 @@ NC='\033[0m'
 dir=$(pwd)
 PID=$!
 ##Welcome and username
-printf "Hey, welcome in learn_shell. A program that teaches about shell scripting inside the shell.\n"
+printf "\t - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - -\n"
+printf "\t   Welcome in learn_shell. A program built by the digital-codon\n\t   platform, that teaches shell scripting inside the shell.\n"
+printf "\t - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+sleep 1
 read -p "Press any key to continue " any
 read -p "what may I call you? " username
 echo "okay "$username" let's get started!"
