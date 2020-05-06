@@ -43,9 +43,10 @@ do
 done
 printf "  \t> ${GREEN}$(pwd)${NC}\n" 
 read -p " Awesome!"
-## Date
-read -p " " any
-printf "So, your current directory is "$dir""
+read -p " ${RED}pwd${RESET} stands for print working directory, it displays the full path of your directory."
+
+## Date 
+read -p "So, your current directory is $(pwd)"
 read -p " " any
 printf "Let's check now what time is it"
 read -p " " any
