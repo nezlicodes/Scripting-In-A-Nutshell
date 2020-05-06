@@ -23,27 +23,26 @@ if [[ $username ]];
 then
 	read -p " Okay "$username" let's get started! "
 else
-	read -p " Are you sure you don't want to tell me your name?" username
+	read -p " Are you sure you don't want to tell me your name? " username
 	if [[ $username ]];
 	then
 		        read -p " Okay "$username" let's get started! "
 		else
 			username="Shy guest"
-			read -p " Okay, then I will just call you Shy Guest."
+			read -p " Okay, then I will just call you Shy Guest. "
 		fi
 	fi
 ## PWD
 read -p " First, let's check where we are in time and space."
-read -p "To check in which directory you are, type the command $(tput setaf 1) pwd $(tput sgr0) " dir1
-
-while [[ $dir1 != "pwd" ]]
+printf " To display your current directory, type the command ${RED}pwd${RESET}\n\t$ "
+read -p "" dir
+while [[ $dir != "pwd" ]]
 do
-	read -p "To check in which directory you are, type the command  $(tput setaf 1) pwd $(tput sgr0) " dir1
+	printf " Enter: ${RED}pwd${RESET}\n\t$ "
+	read -p "" dir
 done
-
-printf "${GREEN}$(pwd)${NC}\n" 
-printf "Awesome, you did well"
-(sleep 1) 
+printf "  \t> ${GREEN}$(pwd)${NC}\n" 
+read -p " Awesome!"
 ## Date
 read -p " " any
 printf "So, your current directory is "$dir""
