@@ -44,7 +44,7 @@ printf "  \t> ${GREEN}$(pwd)${NC}\n"
 read -p " Awesome!"
 read -p " ${RED}pwd${RESET} stands for print working directory, it displays the full path of your directory."
 
-## Date 
+# Date 
 read -p " Let's check now what time is it."
 printf " To do so, type: ${RED}date${RESET}\n\t$ "
 read -p "" dir
@@ -57,64 +57,69 @@ printf "  \t> ${GREEN}$(date)\n${NC}\n"
 read -p " Wow $username you learn so fast."
 
 ## Ls
-read -p " " any
-printf "There is a bunch of files and folders in this directory. let's check them\n"
-read -p " " any
-read -p  "To list all files, type the command  $(tput setaf 1) ls  $(tput sgr0)" dir3
-while [[ $dir3 != "ls"  ]]
+read -p " Now, there are a bunch of files and folders in this directory. Let's explore them."
+read -p  " To list all files, we use the ${RED}ls${RESET} command. "
+printf " Type ${RED}ls${RESET}\n\t$ "
+read -p "" dir
+while [[ $dir != "ls"  ]]
 do
-	read -p "Please, type in the command $(tput setaf 1) ls $(tput sgr0) " dir3
+	printf " Type ${RED}ls${RESET}\n\t$ "
+	read -p "" dir
 done
-printf "${GREEN}$(ls -C)${NC}"
-printf "\n Cool "$username"\n"
-sleep 1
-printf "The ls command lists all files and directories in your current folder.\n"
-sleep 1
-printf "Like all unix commands, ls commes with a handful of useful options you can use.\n"
-read -p " " any
-printf "Let's say for example you want more details about the files in this directory\n"
-read -p " " any
-read -p "In order to do so, type $(tput setaf 1) ls -l $(tput sgr0) " dir4
-while [[ $dir4 != 'ls -l' ]]
+printf " \t> ${GREEN}$(ls -C)${NC}\n"
+read -p " Nice. "
+read -p " The ls command lists all files and directories in your current folder. "
+read -p " And like all unix commands, ${RED}ls${RESET} has a handful of useful options you can use. "
+read -p " Let's say for example you want more details about the files in this directory."
+printf " You can very much do so using the -l option, type $(tput setaf 1)ls -l$(tput sgr0)\n\t$ "
+read -p "" dir
+while [[ $dir != 'ls -l' ]]
 do 
-	read -p "Enter: $(tput setaf 1) ls -l $(tput sgr0) " dir4
+	printf " Enter: $(tput setaf 1) ls -l $(tput sgr0)\n\t\$ "
+	read -p "" dir
 done
-printf "${GREEN}$(ls -l)\n${NC}"
-read -p " " any
-printf "As you can see, you have now a list of all files and directories\n"
-printf "with many details. Among those, Date and size\n"
-read -p " " any
-read -p "Let'navigate to the empty_folder directory to see if it is truely empty."
-read -p "We will use the change directory or cd command. Type $(tput setaf 1) cd empty_folder $(tput sgr0) " dir4
-while [[ $dir4 != 'cd empty_folder' ]]
+printf " \t> ${GREEN}$(ls -l)\n${NC}"
+read -p " As you can see, you have now a list of all files and directories with some attributes about each file like date and size. "
+
+read -p " Alright, let's navigate to the empty_folder directory to see if it is truely empty. "
+printf " We will use the change directory or ${RED}cd${RESET} command. Type ${RED}cd empty_folder${RESET}\n\t$ "
+read -p "" dir
+while [[ $dir != 'cd empty_folder' ]]
 do
-	read -p "Enter: $(tput setaf 1) cd empty_folder $(tput sgr0)" dir4
+	printf "Type ${RED}cd empty_folder${RESET}\n\t$ " 
+	read -p "" dir
 done
-printf "${GREEN}$(pwd)/empty_folder\n${NC}"
+printf " \t> ${GREEN}$(pwd)/empty_folder\n${NC}"
 read -p "Awesome."
 
-read -p "It's your turn to show me what you can do. List the content this folder based on what you learned so far: " dir
+read -p " Practice time! "
+printf " List the content this folder based on what you learned so far:\n\t$ "
+read -p "" dir
 while [[ $dir != 'ls' ]]
-	do 
-		read -p "The correct command is: $(tput setaf 1) ls $(tput sgr0)" dir
-done 
-printf "${GREEN}$(ls empty_folder)\n${NC}" 
-
-read -p "It looks like the folder is truely empty."
-read -p "Or is it ?"
-read -p "The truth is that there is a secret file in this folder.\n"
-read -p "By default, the ls command does not list files that start with '.' (called dot files).\n"
-read -p "To list it, you have to pass in the option -a to the ls command\n"
-read -p "Try it now. Type $(tput setaf 1) 'ls -a' $(tput sgr0) " dir5
-while [[ $dir5 != 'ls -a'  ]]
 do
-	read -p	"Please, type $(tput setaf 1) 'ls -a' $(tput sgr0) " dir5
+	printf " The correct command is: ${RED}ls${RESET}"	
+	read -p "" dir
+done 
+printf " \t> ${GREEN}$(ls empty_folder)\n${NC}" 
+read -p " Yeah! Keep the progress up! "
+
+read -p " It looks like the folder is truely empty."
+read -p " Or is it ?"
+read -p " The truth is that there is a secret file in this folder.\n"
+read -p " By default, the ls command does not list files that start with '.' (called dot files).\n"
+read -p " To list it, you have to pass in the option -a to the ls command\n"
+printf " Try it now. Type ${RED}ls -a${RESET}\n\t$ "
+read -p "" dir
+while [[ $dir != 'ls -a'  ]]
+do
+	printf " Please, type ${RED}ls -a${RESET}\n\t$ "
+	read -p	"" dir
 done
-printf "${GREEN}$(ls -Ca empty_folder)${NC}\n"
+printf " \t> ${GREEN}$(ls -Ca empty_folder)${NC}\n"
 
 
 #READING FILES AND EXAMINING FILES
-printf "I bet now you want to know what kind of dark secret is hidden\n"
+printf " I bet now you want to know what kind of dark secret is hidden\n"
 printf "in the .secret file, don't you?\n"
 printf "Well, that's good because you are about to learn how to examine a file\n"
 read -p "Ready ? " any
