@@ -53,7 +53,7 @@ do
 	printf " Type ${RED}date${RESET}\n\t$ "
 	read -p "" dir
 done 
-printf "  \t>${GREEN}$(date)\n${NC}\n" 
+printf "  \t> ${GREEN}$(date)\n${NC}\n" 
 read -p " Wow $username you learn so fast."
 
 ## Ls
