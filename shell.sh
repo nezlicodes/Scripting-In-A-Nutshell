@@ -20,7 +20,7 @@ read -p " Cool ! "
 read -p " By the way, what may I call you? " username
 if [[ $username ]]; 
 then
-	read -p " Okay "$username" let's get started! "
+	read -p " Okay $username let's get started! "
 else
 	read -p " Are you sure you don't want to tell me your name? " username
 	if [[ $username ]];
