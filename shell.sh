@@ -108,7 +108,7 @@ while [[ $dir6 != 'cat .secret' ]]
 do
 	read -p "Please enter:  $(tput setaf 1) cat .secret $(tput sgr0) " dir6
 done
-printf "${GREEN}$(cat .secret)${NC}\n"
+printf "${GREEN}$(cat empty_folder/.secret)${NC}\n"
 sleep 1
 printf "You're doing good!"
 read -p " " any
