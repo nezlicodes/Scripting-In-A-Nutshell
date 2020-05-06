@@ -86,11 +86,11 @@ printf " We will use the change directory or ${RED}cd${RESET} command. Type ${RE
 read -p "" dir
 while [[ $dir != 'cd empty_folder' ]]
 do
-	printf "Type ${RED}cd empty_folder${RESET}\n\t$ " 
+	printf " Type ${RED}cd empty_folder${RESET}\n\t$ " 
 	read -p "" dir
 done
 printf " \t> ${GREEN}$(pwd)/empty_folder\n${NC}"
-read -p "Awesome."
+read -p " Awesome."
 
 read -p " Practice time! "
 printf " List the content this folder based on what you learned so far:\n\t$ "
