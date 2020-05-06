@@ -97,7 +97,7 @@ printf " List the content this folder based on what you learned so far:\n\t$ "
 read -p "" dir
 while [[ $dir != 'ls' ]]
 do
-	printf " The correct command is: ${RED}ls${RESET}"	
+	printf " The correct command is: ${RED}ls${RESET}\n\t\$ "	
 	read -p "" dir
 done 
 printf " \t> ${GREEN}$(ls empty_folder)\n${NC}" 
