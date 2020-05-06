@@ -105,9 +105,9 @@ read -p " Yeah! Keep the progress up! "
 
 read -p " It looks like the folder is truely empty."
 read -p " Or is it ?"
-read -p " The truth is that there is a secret file in this folder.\n"
-read -p " By default, the ls command does not list files that start with '.' (called dot files).\n"
-read -p " To list it, you have to pass in the option -a to the ls command\n"
+read -p " The truth is that there is a secret file in this folder."
+read -p " By default, the ls command does not list files that start with '.' (called dot files)."
+read -p " To list it, you have to pass in the option -a to the ls command. "
 printf " Try it now. Type ${RED}ls -a${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'ls -a'  ]]
@@ -116,7 +116,6 @@ do
 	read -p	"" dir
 done
 printf " \t> ${GREEN}$(ls -Ca empty_folder)${NC}\n"
-
 
 #READING FILES AND EXAMINING FILES
 read -p " I bet now you want to know what kind of dark secret is hidden in the .secret file, don't you? "
@@ -129,7 +128,7 @@ do
 	printf " Please enter: ${RED}cat .secret${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(cat empty_folder/.secret)${NC} "
+printf " \t> ${GREEN}$(cat empty_folder/.secret)${NC}\n"
 read -p " Spooky."
 
 read -p " Let's do some more exiting work now with our dna.txt file. "
@@ -144,7 +143,7 @@ done
 printf " \t> ${GREEN}$(pwd)${NC}\n"
 read -p " Good."
 
-read -p " We juat learned about the ${RED}cat$(RESET) that allows you to read a file. "
+read -p " We just learned about the ${RED}cat$(RESET) that allows you to read a file. "
 read -p " Most of the times though, your files are too long to be printed all at once. "
 printf " Try for example to read the file 'dna.txt' using the ${RED}cat dna.txt${RESET} command\n\t$  "
 read -p "" dir
