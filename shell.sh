@@ -10,8 +10,8 @@ printf "\t - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - -\n"
 printf "\t   Welcome in learn_shell. A program built by the digital-codon\n\t   platform, that teaches shell scripting inside the shell.\n"
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n"
 sleep 1
-read -p "Press any key to continue " any
-read -p "what may I call you? " username
+read -p " Press enter key to continue "
+read -p " What may I call you? " username
 echo "okay "$username" let's get started!"
 ## PWD
 printf "First, let's check where we are in time and space."
