@@ -12,7 +12,6 @@ RESET=$(tput sgr0)
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - -\n"
 printf "\t   Welcome to learn_shell. A program built by the digital-codon\n\t   platform, that teaches shell scripting inside the shell.\n"
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n"
-sleep 1
 printf "Instructions:\n"
 read -p " Press ${RED}enter${RESET} whenever you are ready to continue. "
 printf " You can press ${RED}control + c${RESET} whenever you want to exit the program.\n"
