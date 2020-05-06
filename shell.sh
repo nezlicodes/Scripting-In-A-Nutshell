@@ -5,19 +5,33 @@ CC='\033[0;35m'
 NC='\033[0m'
 dir=$(pwd)
 PID=$!
+RED=$(tput setaf 1) 
+RESET=$(tput sgr0)
 
 ##Welcome and username
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - -\n"
 printf "\t   Welcome to learn_shell. A program built by the digital-codon\n\t   platform, that teaches shell scripting inside the shell.\n"
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n"
 sleep 1
-read -p " Press enter key to continue "
-read -p " What may I call you? " username
-read -p " Okay "$username" let's get started! "
-read -p " Whenever you want to move foreward, type Enter. "
-read -p " If you want to exit the program, press control + c. "
-read -p " Ready to start gaining new skills? "
-
+printf "Instructions:\n"
+read -p " Press ${RED}enter${RESET} whenever you are ready to continue. "
+printf " You can press ${RED}control + c${RESET} whenever you want to exit the program.\n"
+read -p " Got it? "
+read -p " Cool ! "
+read -p " By the way, what may I call you? " username
+if [[ $username ]]; 
+then
+	read -p " Okay "$username" let's get started! "
+else
+	read -p " Are you sure you don't want to tell me your name?" username
+	if [[ $username ]];
+	then
+		        read -p " Okay "$username" let's get started! "
+		else
+			username="Shy guest"
+			read -p " Okay, then I will just call you Shy Guest."
+		fi
+	fi
 ## PWD
 read -p " First, let's check where we are in time and space."
 read -p "To check in which directory you are, type the command $(tput setaf 1) pwd $(tput sgr0) " dir1
