@@ -119,78 +119,93 @@ printf " \t> ${GREEN}$(ls -Ca empty_folder)${NC}\n"
 
 
 #READING FILES AND EXAMINING FILES
-printf " I bet now you want to know what kind of dark secret is hidden\n"
-printf "in the .secret file, don't you?\n"
-printf "Well, that's good because you are about to learn how to examine a file\n"
-read -p "Ready ? " any
-printf "To read the content of a file, you have to execute the command $(tput setaf 1) cat filename $(tput sgr0)\n"
-sleep 1
-read -p "Type $(tput setaf 1) cat .secret $(tput sgr0)" dir6
-while [[ $dir6 != 'cat .secret' ]]
+read -p " I bet now you want to know what kind of dark secret is hidden in the .secret file, don't you? "
+read -p " Well, that's good because you are about to learn how to examine a file. "
+read -p " To read the content of a file, you have to execute the command ${RED}cat filename${RESET}"
+printf " Type ${RED}cat .secret${RESET}\n\t$ "
+read -p "" dir
+while [[ $dir != 'cat .secret' ]]
 do
-	read -p "Please enter:  $(tput setaf 1) cat .secret $(tput sgr0) " dir6
+	printf " Please enter: ${RED}cat .secret${RESET}\n\t$ "
+	read -p "" dir
 done
-printf "${GREEN}$(cat empty_folder/.secret)${NC}\n"
-read -p "Spooky."
+printf " \t> ${GREEN}$(cat empty_folder/.secret)${NC} "
+read -p " Spooky."
 
-read -p "Let's do some more exiting work now with our dna.txt file. "
-read -p "First, we need to navigate back to the parent directory. "
-read -p "Type the command $(tput setaf 1)cd . $(tput sgr0)" dir
+read -p " Let's do some more exiting work now with our dna.txt file. "
+read -p " First, we need to navigate back to the parent directory. "
+printf " Type the command ${RED}cd .${RESET}\n\t$ "
+read "" dir
 while [[ $dir != 'cd .' ]]
 do
-	read -p "Please enter:  $(tput setaf 1)cd .$(tput sgr0) " dir
+	printf " Please enter: ${RED}cat .secret${RESET}\n\t$ "
+	read -p "" dir
 done
-printf "${GREEN}$(pwd)${NC}\n"
-read -p "Good."
+printf " \t> ${GREEN}$(pwd)${NC}\n"
+read -p " Good."
 
-read -p "We juat learned about the $(tput setaf 1)cat$(tput sgr0) that allows you to read a file."
-read -p "Most of the times though, your files are too long to be printed all at once."
-read -p "try for example to read the file 'dna.txt' using the $(tput setaf 1)cat$(tput sgr0) command" dir8
-while [[ $dir8 != 'cat dna.txt' ]]
+read -p " We juat learned about the ${RED}cat$(RESET) that allows you to read a file. "
+read -p " Most of the times though, your files are too long to be printed all at once. "
+printf " Try for example to read the file 'dna.txt' using the ${RED}cat dna.txt${RESET} command\n\t$  "
+read -p "" dir
+while [[ $dir != 'cat dna.txt' ]]
 do
-	read -p "Type:  $(tput setaf 1) cat dna.txt $(tput sgr0) " dir8
+	printf " Type: ${RED}cat dna.txt${RESET}\n\t$ "
+	read -p "" dir
 done
-printf "${GREEN}$(cat dna.txt)${NC}\n"
-read -p "Wow, pretty long right? "
-read -p "Let's say you want to check the first lines of the file only."
-read -p "There is a special command that allows you to do just that."
-printf "Let's check the head of the file dna.txt.\n"
-read -p "Type $(tput setaf 1) head dna.txt $(tput sgr0)" dir7
-while [[ $dir7 != 'head dna.txt' ]]
+printf " \t> ${GREEN}$(cat dna.txt)${NC}\n"
+read -p " Wow, pretty long right? "
+read -p " Let's say you want to check the first lines of the file only. "
+read -p " There is a special command that allows you to do just that. "
+read -p " Let's check the head of the file dna.txt. "
+printf " Type ${RED}head dna.txt${RESET}\n\t$ "
+read -p "" dir
+while [[ $dir != 'head dna.txt' ]]
 do
-	        read -p "Please enter:  $(tput setaf 1) head dna.txt $(tput sgr0) " dir7
+	printf " Type ${RED}head dna.txt${RESET}\n\t$ "
+	read -p "" dir
 done
-printf "${GREEN}$(head dna.txt)${NC}\n"
-read -p "That's much cleaner, right?" 
-read -p "The $(tput setaf 1)head$(tput sgr0) command accepts some options."
-read -p "You can for example chose how many lines you want to read with the $(tput setaf 1)-n$(tput sgr0) option"
-read -p "To print the first 3 lines of your file, enter  $(tput setaf 1)head -n3$(tput sgr0) " dir9
-while [[ $dir9 != 'head -n3 dna.txt' ]]
+
+printf " \t> ${GREEN}$(head dna.txt)${NC}\n"
+read -p " That's much cleaner, right? " 
+read -p " The ${RED}head${RESET} command accepts some options. "
+read -p " You can for example chose how many lines you want to read with the ${RED}-n${RESET} option. "
+printf " To print the first 3 lines of your file, enter ${RED}head -n3$(RESET)\n\t$ "
+read "" dir
+while [[ $dir != 'head -n3 dna.txt' ]]
 do
-	read -p "Type:  $(tput setaf 1) head -n3 dna.txt $(tput sgr0) " dir9
+	read -p " Type:  ${RED}head -n3$(RESET)\n\t$ " dir
 done
-printf "${GREEN}$(head -n3 dna.txt)${NC}\n"
-read -p "Alternatively, you can check the tail of your file using the  $(tput setaf 1) tail dna.txt $(tput sgr0)" dir12
-while [[ $dir12 != 'tail dna.txt' ]]
+printf " \t> ${GREEN}$(head -n3 dna.txt)${NC}\n"
+
+printf " Alternatively, you can check the tail of your file using the ${RED}tail dna.txt${RESET}\n\t$ "
+read "" dir
+while [[ $dir != 'tail dna.txt' ]]
 do
-	        read -p "Please enter:  $(tput setaf 1) tail dna.txt $(tput sgr0) " dir12
+	printf " Please enter: ${RED}tail dna.txt${RESET}\n\t$ "
+	read -p "" dir
 done
-printf "${GREEN}$(tail dna.txt)${NC}\n"
-read -p "There are other widely used commands to read files that I will let you explore on your own."
-read -p "For now, let's continue exploring our files. "
-read -p "You just saw that dna.txt was a pretty long file.  "
-read -p "But how many word exactly does it contain? "
-read -p "To answer this question, we use the word count or wc command: $(tput setaf 1 )wc dna.txt$(tput sgr0)" dir10
-while [[ $dir10 != 'wc dna.txt' ]]
+printf " \t> ${GREEN}$(tail dna.txt)${NC}\n"
+
+read -p " There are other widely used commands to read files that I will let you explore on your own."
+read -p " For now, let's continue exploring our files. "
+read -p " You just saw that dna.txt was a pretty long file.  "
+read -p " But how many word exactly does it contain? "
+printf " To answer this question, we use the word count or wc command: ${RED}wc dna.txt${RESET}\n\t$ "
+read -p "" dir
+while [[ $dir!= 'wc dna.txt' ]]
 do
-	read -p "Please enter:  $(tput setaf 1) wc dna.txt $(tput sgr0) " dir10
+	printf " Please enter: ${RED}wc dna.txt${RESET}\n\t$ "
+	read -p "" dir
 done
-printf "${GREEN}$(wc dna.txt)${NC}\n"
-read -p "The output tells you your file contains $(cat dna.txt | wc) words"
-read -p "You can also check how many lines are in the file: with the option -l: $(tput setaf 1 )wc -l dna.txt$(tput sgr0)" dir11
-while [[ $dir11 != 'wc-l dna.txt' ]]
+printf "\t> ${GREEN}$(wc dna.txt)${NC}\n"
+
+read -p " The output tells you your file contains $(cat dna.txt | wc) words "
+printf " You can also check how many lines are in the file: with the option -l: ${RED}wc -l dna.txt${RESET}\n\t$ " 
+read -p "" dir
+while [[ $dir != 'wc-l dna.txt' ]]
 do
-	read -p "Please enter:  $(tput setaf 1) wc -l dna.txt $(tput sgr0) " dir11
+	read -p " Please enter: ${RED}wc -l dna.txt${RESET} " dir
 done
-printf "${GREEN}$(wc -l dna.txt)${NC}\n"
+printf " \t> ${GREEN}$(wc -l dna.txt)${NC}\n"
 
