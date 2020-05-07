@@ -172,12 +172,13 @@ printf " To print the first 3 lines of your file, enter ${RED}head -n3${RESET}\n
 read -p "" dir
 while [[ $dir != 'head -n3 dna.txt' ]]
 do
-	read -p " Type:  ${RED}head -n3${RESET}\n\t$ " dir
+	printf " Type:  ${RED}head -n3 dna.txt${RESET}\n\t$ "
+	read -p "" dir
 done
 printf " \t> ${GREEN}$(head -n3 dna.txt)${NC}\n"
 
 printf " Alternatively, you can check the tail of your file using the ${RED}tail dna.txt${RESET}\n\t$ "
-read "" dir
+read -p "" dir
 while [[ $dir != 'tail dna.txt' ]]
 do
 	printf " Please enter: ${RED}tail dna.txt${RESET}\n\t$ "
@@ -196,7 +197,7 @@ do
 	printf " Please enter: ${RED}wc dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf "\t> ${GREEN}$(wc dna.txt)${NC}\n"
+printf " \t> ${GREEN}$(wc dna.txt)${NC}\n"
 
 read -p " The output tells you your file contains $(cat dna.txt | wc) words "
 printf " You can also check how many lines are in the file: with the option -l: ${RED}wc -l dna.txt${RESET}\n\t$ " 
