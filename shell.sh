@@ -168,11 +168,11 @@ printf " \t> ${GREEN}$(head dna.txt)${NC}\n"
 read -p " That's much cleaner, right? " 
 read -p " The ${RED}head${RESET} command accepts some options. "
 read -p " You can for example chose how many lines you want to read with the ${RED}-n${RESET} option. "
-printf " To print the first 3 lines of your file, enter ${RED}head -n3$(RESET)\n\t$ "
+printf " To print the first 3 lines of your file, enter ${RED}head -n3${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'head -n3 dna.txt' ]]
 do
-	read -p " Type:  ${RED}head -n3$(RESET)\n\t$ " dir
+	read -p " Type:  ${RED}head -n3${RESET}\n\t$ " dir
 done
 printf " \t> ${GREEN}$(head -n3 dna.txt)${NC}\n"
 
@@ -206,4 +206,5 @@ do
 	read -p " Please enter: ${RED}wc -l dna.txt${RESET} " dir
 done
 printf " \t> ${GREEN}$(wc -l dna.txt)${NC}\n"
+
 
