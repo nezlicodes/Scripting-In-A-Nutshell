@@ -198,8 +198,7 @@ do
 	read -p "" dir
 done
 printf " \t> ${GREEN}$(wc dna.txt)${NC}\n"
-
-read -p " The output tells you your file contains $(cat dna.txt | wc) words "
+read -p ""
 printf " You can also check how many lines are in the file: with the option -l: ${RED}wc -l dna.txt${RESET}\n\t$ " 
 read -p "" dir
 while [[ $dir != 'wc -l dna.txt' ]]
