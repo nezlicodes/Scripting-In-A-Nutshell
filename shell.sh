@@ -168,7 +168,7 @@ printf " \t> ${GREEN}$(head dna.txt)${NC}\n"
 read -p " That's much cleaner, right? " 
 read -p " The ${RED}head${RESET} command accepts some options. "
 read -p " You can for example chose how many lines you want to read with the ${RED}-n${RESET} option. "
-printf " To print the first 3 lines of your file, enter ${RED}head -n3${RESET}\n\t$ "
+printf " To print the first 3 lines of your file, enter ${RED}head -n3 dna.txt${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'head -n3 dna.txt' ]]
 do
@@ -192,7 +192,7 @@ read -p " You just saw that dna.txt was a pretty long file.  "
 read -p " But how many word exactly does it contain? "
 printf " To answer this question, we use the word count or wc command: ${RED}wc dna.txt${RESET}\n\t$ "
 read -p "" dir
-while [[ $dir!= 'wc dna.txt' ]]
+while [[ $dir != 'wc dna.txt' ]]
 do
 	printf " Please enter: ${RED}wc dna.txt${RESET}\n\t$ "
 	read -p "" dir
@@ -202,9 +202,10 @@ printf " \t> ${GREEN}$(wc dna.txt)${NC}\n"
 read -p " The output tells you your file contains $(cat dna.txt | wc) words "
 printf " You can also check how many lines are in the file: with the option -l: ${RED}wc -l dna.txt${RESET}\n\t$ " 
 read -p "" dir
-while [[ $dir != 'wc-l dna.txt' ]]
+while [[ $dir != 'wc -l dna.txt' ]]
 do
-	read -p " Please enter: ${RED}wc -l dna.txt${RESET} " dir
+	printf " Please enter: ${RED}wc -l dna.txt${RESET}\n\t$ "
+	read -p "" dir
 done
 printf " \t> ${GREEN}$(wc -l dna.txt)${NC}\n"
 
