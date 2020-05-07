@@ -133,10 +133,10 @@ read -p " Spooky."
 read -p " Let's do some more exiting work now with our dna.txt file. "
 read -p " First, we need to navigate back to the parent directory. "
 printf " Type the command ${RED}cd .${RESET}\n\t$ "
-read "" dir
-while [[ $dir != 'cd .' ]]
+read -p "" dir
+while [[ $dir != "cd ." ]]
 do
-	printf " Please enter: ${RED}cat .secret${RESET}\n\t$ "
+	printf " Please enter: ${RED}cd .${RESET}\n\t$ "
 	read -p "" dir
 done
 printf " \t> ${GREEN}$(pwd)${NC}\n"
