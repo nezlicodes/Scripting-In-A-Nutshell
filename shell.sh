@@ -142,7 +142,7 @@ done
 printf " \t> ${GREEN}$(pwd)${NC}\n"
 read -p " Good."
 
-read -p " We just learned about the ${RED}cat$(RESET) that allows you to read a file. "
+read -p " We just learned about the ${RED}cat${RESET} that allows you to read a file. "
 read -p " Most of the times though, your files are too long to be printed all at once. "
 printf " Try for example to read the file 'dna.txt' using the ${RED}cat dna.txt${RESET} command\n\t$  "
 read -p "" dir
@@ -169,7 +169,7 @@ read -p " That's much cleaner, right? "
 read -p " The ${RED}head${RESET} command accepts some options. "
 read -p " You can for example chose how many lines you want to read with the ${RED}-n${RESET} option. "
 printf " To print the first 3 lines of your file, enter ${RED}head -n3$(RESET)\n\t$ "
-read "" dir
+read -p "" dir
 while [[ $dir != 'head -n3 dna.txt' ]]
 do
 	read -p " Type:  ${RED}head -n3$(RESET)\n\t$ " dir
