@@ -64,7 +64,7 @@ echo " |=========                                                  |    19%"
 
 ## Ls
 read -p " Now, there are a bunch of files and folders in this directory. Let's explore them."
-printf  " To list all files, we use the ${RED}ls${RESET} command.\n\t$ "
+printf  " To list all files and directories, we use the ${RED}ls${RESET} command.\n\t$ "
 read -p "" dir
 while [[ $dir != "ls"  ]]
 do
