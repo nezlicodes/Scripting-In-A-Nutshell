@@ -30,7 +30,10 @@ else
 			username="Shy Guest"
 			read -p " Okay, then I will just call you Shy Guest. "
 		fi
-	fi
+fi
+
+echo " |==================================================|    6%"
+
 ## PWD
 read -p " First, let's check where we are in time and space."
 printf " To display your current directory, type the command ${RED}pwd${RESET}\n\t$ "
@@ -92,7 +95,7 @@ printf " \t> ${GREEN}$(pwd)/empty_folder\n${NC}"
 read -p " Awesome."
 
 read -p " Practice time! "
-printf " List the content this folder based on what you learned so far:\n\t$ "
+printf " List the content of this folder based on what you learned so far:\n\t$ "
 read -p "" dir
 while [[ $dir != 'ls' ]]
 do
