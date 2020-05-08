@@ -13,8 +13,8 @@ printf "\t - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - -\n"
 printf "\t   Welcome to learn_shell. A program built by the digital-codon\n\t   platform, that teaches shell scripting inside the shell.\n"
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n"
 printf "Instructions:\n"
-read -p " Press ${RED}enter${RESET} whenever you are ready to continue. "
-printf " You can press ${RED}control + c${RESET} whenever you want to exit the program."
+read -p " Press ${RED}enter${RESET} whenever you are ready to start. "
+printf " You can press ${RED}control + c${RESET} whenever you want to exit the program. "
 read -p " Got it? "
 read -p " Cool ! "
 read -p " By the way, what may I call you? " username
@@ -32,7 +32,7 @@ else
 		fi
 fi
 
-echo " |==================================================|    6%"
+echo " |===                                                        |    6%"
 
 ## PWD
 read -p " First, let's check where we are in time and space."
@@ -47,6 +47,7 @@ printf "  \t> ${GREEN}$(pwd)${NC}\n"
 read -p " Awesome!"
 read -p " ${RED}pwd${RESET} stands for print working directory, it displays the full path of your directory."
 
+echo " |======                                                     |    12%" 
 # Date 
 read -p " Let's check now what time is it."
 printf " To do so, type: ${RED}date${RESET}\n\t$ "
@@ -58,6 +59,8 @@ do
 done 
 printf "  \t> ${GREEN}$(date)\n${NC}\n" 
 read -p " Wow $username you learn so fast."
+
+echo " |=========                                                  |    19%" 
 
 ## Ls
 read -p " Now, there are a bunch of files and folders in this directory. Let's explore them."
@@ -82,6 +85,8 @@ do
 done
 printf " \t> ${GREEN}$(ls -l)\n${NC}"
 read -p " As you can see, you have now a list of all files and directories with some attributes about each file like date and size. "
+
+echo " |=======================                                                        |    36%" 
 
 read -p " Alright, let's navigate to the empty_folder directory to see if it is truely empty. "
 printf " We will use the change directory or ${RED}cd${RESET} command. Type ${RED}cd empty_folder${RESET}\n\t$ "
