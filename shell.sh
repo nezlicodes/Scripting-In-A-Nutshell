@@ -194,7 +194,7 @@ do
 done
 printf " \t> ${GREEN}$(tail dna.txt)${NC}\n"
 
-read -p " There are other widely used commands to read files that I will let you explore on your own."
+read -p " There are other widely used commands to read files that I will let you explore on your own. "
 read -p " For now, let's continue exploring our files. "
 read -p " You just saw that dna.txt was a pretty long file.  "
 read -p " But how many word exactly does it contain? "
@@ -206,7 +206,7 @@ do
 	read -p "" dir
 done
 printf " \t> ${GREEN}$(wc dna.txt)${NC}\n"
-read -p ""
+read -p " This command outputs the number of lines, the number of words and the number of characters your file contain. "
 printf " You can also check how many lines are in the file: with the option -l: ${RED}wc -l dna.txt${RESET}\n\t$ " 
 read -p "" dir
 while [[ $dir != 'wc -l dna.txt' ]]
