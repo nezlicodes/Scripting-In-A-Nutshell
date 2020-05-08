@@ -150,7 +150,7 @@ done
 printf " \t> ${GREEN}$(pwd)${NC}\n"
 read -p " Good."
 
-read -p " We just learned about the ${RED}cat${RESET} that allows you to read a file. "
+read -p " We just learned about the ${RED}cat${RESET} command that allows you to read a file. "
 read -p " Most of the times though, your files are too long to be printed all at once. "
 printf " Try for example to read the file 'dna.txt' using the ${RED}cat dna.txt${RESET} command\n\t$  "
 read -p "" dir
