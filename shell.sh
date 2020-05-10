@@ -231,8 +231,8 @@ printf " \t> ${GREEN}$(ls)${NC}\n"
 read -p " You're nailing it!" 
 
 ## mv
-read -r " We will now copy the dna2.txt file to the dna_sequences folder. "
-read -r " This time, we will not use the ${RED}cp${RESET} command but rather the ${RED}mv${RESET} 'move' command"
+read -p " We will now copy the dna2.txt file to the dna_sequences folder. "
+read -p " This time, we will not use the ${RED}cp${RESET} command but rather the ${RED}mv${RESET} 'move' command"
 printf " Type: ${RED} mv dna2.txt dna_sequences${RESET} "
 read -p "" dir
 while [[ $dir != 'mv dna2.txt dna_sequences' ]]
@@ -261,12 +261,11 @@ printf " Now,  navigate to the dna_sequences folder: \n\t$ "
 read -p "" dir
 while [[ $dir != 'cd dna_sequences' ]]
 do
-	printf " Type: ${RED}cd dna_sequences${RESET}\n\t$ 
-	"read -p "" dir
+	printf " Type: ${RED}cd dna_sequences${RESET}\n\t$ "
+	read -p "" dir
 done
 printf " \t> ${GREEN}$(cd dna_sequences)${NC}\n"
 read -p " You're nailing it!" 
-
 
 read -p " We just learned about the ${RED}cat${RESET} command that allows you to read a file. "
 read -p " Most of the times though, your files are too long to be printed all at once. "
@@ -274,10 +273,10 @@ printf " Try for example to read the file 'dna.txt' using the ${RED}cat dna.txt$
 read -p "" dir
 while [[ $dir != 'cat dna.txt' ]]
 do
-	printf " Type: ${RED}cat dna.txt${RESET}\n\t$ "
+	printf " Type: ${RED}cat dna_sequences/dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(cat dna.txt)${NC}\n"
+printf " \t> ${GREEN}$(cat dna_sequences/dna.txt)${NC}\n"
 read -p " Wow, pretty long right? "
 read -p " Let's say you want to check the first lines of the file only. "
 read -p " There is a special command that allows you to do just that. "
@@ -290,7 +289,7 @@ do
 	read -p "" dir
 done
 
-printf " \t> ${GREEN}$(head dna.txt)${NC}\n"
+printf " \t> ${GREEN}$(head dna_sequences/dna.txt)${NC}\n"
 read -p " That's much cleaner, right? " 
 read -p " The ${RED}head${RESET} command accepts some options. "
 read -p " You can for example chose how many lines you want to read with the ${RED}-n${RESET} option. "
@@ -301,7 +300,7 @@ do
 	printf " Type:  ${RED}head -n3 dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(head -n3 dna.txt)${NC}\n"
+printf " \t> ${GREEN}$(head -n3 dna_sequences/dna.txt)${NC}\n"
 
 printf " Alternatively, you can check the tail of your file using the ${RED}tail dna.txt${RESET}\n\t$ "
 read -p "" dir
@@ -310,7 +309,7 @@ do
 	printf " Please enter: ${RED}tail dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(tail dna.txt)${NC}\n"
+printf " \t> ${GREEN}$(tail dna_sequences/dna.txt)${NC}\n"
 
 read -p " There are other widely used commands to read files that I will let you explore on your own. "
 read -p " For now, let's continue exploring our files. "
@@ -323,7 +322,7 @@ do
 	printf " Please enter: ${RED}wc dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(wc dna.txt)${NC}\n"
+printf " \t> ${GREEN}$(wc dna_sequences/dna.txt)${NC}\n"
 read -p " This command outputs the number of lines, the number of words and the number of characters your file contain. "
 printf " You can also check how many lines are in the file: with the option -l: ${RED}wc -l dna.txt${RESET}\n\t$ " 
 read -p "" dir
@@ -332,6 +331,6 @@ do
 	printf " Please enter: ${RED}wc -l dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(wc -l dna.txt)${NC}\n"
+printf " \t> ${GREEN}$(wc -l dna_sequences/dna.txt)${NC}\n"
 
 
