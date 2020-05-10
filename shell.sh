@@ -32,11 +32,12 @@ else
 fi
 
 printf " \n\t${BLUE} "
-echo " |===                                                        |    6%"
+echo " |===                                                        |    4%"
 printf "\n${RESET} "
+
 ## PWD
 read -p " First, let's check where we are in time and space."
-printf " To display your current directory, type the command ${RED}pwd${RESET}\n\t$ %s/%s " $username $(pwd)
+printf " To display your current directory, type the command ${RED}pwd${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != "pwd" ]]
 do
