@@ -232,7 +232,7 @@ read -p " You're nailing it!"
 
 ## mv
 read -r " We will now copy the dna2.txt file to the dna_sequences folder. "
-read -r " This time, we will not use the ${RED}cp${RESET} command but rather the ${RED}mv${RESET} 'move' command"
+read -r " This time, we will not use the ${RED}cp${RESET} command but rather the ${RED}mv${RESET} (move) command"
 printf " Type: ${RED} mv dna2.txt dna_sequences${RESET} "
 read -p "" dir
 while [[ $dir != 'mv dna2.txt dna_sequences' ]]
