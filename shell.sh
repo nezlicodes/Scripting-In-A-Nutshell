@@ -33,7 +33,7 @@ fi
 
 printf " \n\t${BLUE} "
 echo " |===                                                        |    4%"
-printf "\n${RESET} "
+printf "\n${RESET}"
 
 ## PWD
 read -p " First, let's check where we are in time and space."
@@ -48,7 +48,11 @@ printf "  \t> ${GREEN}$(pwd)${NC}\n"
 read -p " Awesome!"
 read -p " ${RED}pwd${RESET} stands for print working directory, it displays the full path of your directory."
 
-echo " |======                                                     |    12%" 
+printf " \n\t${BLUE} "
+echo " |====                                                        |    9%"
+printf "\n${RESET}"
+
+
 # Date 
 read -p " Let's check now what time is it."
 printf " To do so, type: ${RED}date${RESET}\n\t$ "
