@@ -32,8 +32,9 @@ else
 		fi
 fi
 
+printf " \n\t "
 echo " |===                                                        |    6%"
-
+printf "\n "
 ## PWD
 read -p " First, let's check where we are in time and space."
 printf " To display your current directory, type the command ${RED}pwd${RESET}\n\t$ %s/%s " $username $(pwd)
