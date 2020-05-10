@@ -3,8 +3,7 @@
 GREEN='\033[0;33m'
 CC='\033[0;35m'
 NC='\033[0m'
-dir=$(pwd)
-PID=$!
+BLUE='\033[0;34m'
 RED=$(tput setaf 1) 
 RESET=$(tput sgr0)
 
@@ -32,9 +31,9 @@ else
 		fi
 fi
 
-printf " \n\t "
+printf " \n\t${BLUE} "
 echo " |===                                                        |    6%"
-printf "\n "
+printf "\n${RESET} "
 ## PWD
 read -p " First, let's check where we are in time and space."
 printf " To display your current directory, type the command ${RED}pwd${RESET}\n\t$ %s/%s " $username $(pwd)
