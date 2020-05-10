@@ -36,7 +36,7 @@ echo " |===                                                        |    6%"
 
 ## PWD
 read -p " First, let's check where we are in time and space."
-printf " To display your current directory, type the command ${RED}pwd${RESET}\n\t$ "
+printf " To display your current directory, type the command ${RED}pwd${RESET}\n\t$ %s/%s " $username $(pwd)
 read -p "" dir
 while [[ $dir != "pwd" ]]
 do
@@ -138,8 +138,9 @@ done
 printf " \t> ${GREEN}$(cat empty_folder/.secret)${NC}\n"
 read -p " Spooky."
 
+## CD ..
 read -p " Let's do some more exiting work now with our dna.txt file. "
-read -p " First, we need to navigate back to the parent directory. "
+read -p " First off, we need to navigate back to the parent directory. "
 printf " Type the command ${RED}cd .${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != "cd ." ]]
@@ -149,6 +150,123 @@ do
 done
 printf " \t> ${GREEN}$(pwd)${NC}\n"
 read -p " Good."
+
+
+## Making directories.
+read -p " One important piece of bioinformatics is project organization. "
+read -p " It is quite important to have a clean well organized working directory because files add up really fast as we are going to see in the next courses. "
+read -p " Let's create a folder dna_sequences in which we will put all our dna.txt files. "
+read -p " Todo this, the make directory or ${RED}mkdir${RESET} command is used. "
+printf " Type: ${RED}mkdir dna_sequences${RESET}\n\t$ "
+read -p "" dir
+while [[ $dir != "mkdir dna_sequences" ]]
+do
+	printf " Please enter: ${RED}mkdir dna_sequences${RESET}\n\t$ "
+	read -p "" dir
+done
+printf " \t> ${GREEN}$(mkdir dna_sequences)${NC}\n"
+read -p " Awesome $username."
+
+## Copying files.
+read -p " Let's copy now the dna.txt file in that folder. "
+printf " Enter  ${RED}cp dna.txt dna_sequences${RESET}\n\t$ " 
+read -p "" dir
+while [[ $dir != "cp dna.txt dna_sequences" ]]
+do
+	printf " Please enter: ${RED}cp dna.txt dna_sequences${RESET}\n\t$ "
+	read -p "" dir
+done
+printf " \t> ${GREEN}$(cp dna.txt dna_sequences)${NC}\n"
+read -p " Awesome $username." 
+
+
+## Ls /dir
+read -p " Just to make sure that it has been copied, we will list the content of dna_sequences."
+printf "You will not need to navigate to the folder this time. just enter ${RED}ls dna_sequences${RESET} "
+read -p "" dir
+while [[ $dir != "ls dna_sequences" ]] 
+do
+	printf " Please enter: ${RED}ls dna_sequences${RESET}\n\t$ "
+	read -p "" dir
+done
+printf " \t> ${GREEN}$(ls dna_sequences)${NC}\n"
+read -p " Awesome $username."
+
+
+## REMOVING FILES
+read -p " Since our file is copied, we don't need it anymore. To delete it we will use the remove command."
+printf " Go ahead %s, just enter ${RED}rm dna.txt ${RESET} " $username
+read -p "" dir
+while [[ $dir != "rm dna.txt" ]]
+do
+	printf " Please enter: ${RED}rm dna.txt${RESET}\n\t$ "
+	read -p "" dir
+done
+printf " \t> ${GREEN}$(rm dna.txt)${NC}\n"
+read -p " Awesome $username."
+
+
+## REMOVING DIRECTORIES
+read -p " Also, since it's useless by now, we can delete the empty_folder. "
+read -p " In order to do this, you have to use the -r (for recursively) option with the remove command"
+printf " Type: ${RED}rm -r empty_folder${RESET}\n\t$ "
+read -p "" dir
+while [[ $dir != 'rm -r empty_folder' ]]
+do
+	printf " Type: ${RED}rm -r empty_folder${RESET}\n\t$ "
+	read -p "" dir
+done
+printf " \t> ${GREEN}$(rm -r empty_folder)${NC}\n"
+read -p " You're nailing it!"
+
+## Ls
+printf " List the content of the directory to make sure that you have dont it right:\n\t$ "
+read -p "" dir
+while [[ $dir != 'ls' ]]
+do
+	printf " Type: ${RED}ls${RESET}\n\t$ "
+       	read -p "" dir
+done
+printf " \t> ${GREEN}$(ls)${NC}\n"
+read -p " You're nailing it!" 
+
+## mv
+read -r " We will now copy the dna2.txt file to the dna_sequences folder. "
+read -r " This time, we will not use the ${RED}cp${RESET} command but rather the ${RED}mv${RESET} (move) command"
+printf " Type: ${RED} mv dna2.txt dna_sequences${RESET} "
+read -p "" dir
+while [[ $dir != 'mv dna2.txt dna_sequences' ]]
+do
+	printf " Type: ${RED}mv dna2.txt dna_sequences${RESET}\n\t$ "
+	read -p "" dir
+done
+printf " \t> ${GREEN}$(mv dna2.txt dna_sequences)${NC}\n"
+read -p " You're nailing it!"
+
+
+## Ls
+printf " Again, list the content of the directory to make sure that you have dont it right:\n\t$ "
+read -p "" dir
+while [[ $dir != 'ls' ]]
+do
+	printf " Type: ${RED}ls${RESET}\n\t$ "
+	read -p "" dir
+done
+printf " \t> ${GREEN}$(ls)${NC}\n"
+read -p " You're nailing it!"
+
+
+## cd dna_sequences
+printf " Now,  navigate to the dna_sequences folder: \n\t$ "
+read -p "" dir
+while [[ $dir != 'cd dna_sequences' ]]
+do
+	printf " Type: ${RED}cd dna_sequences${RESET}\n\t$ 
+	"read -p "" dir
+done
+printf " \t> ${GREEN}$(cd dna_sequences)${NC}\n"
+read -p " You're nailing it!" 
+
 
 read -p " We just learned about the ${RED}cat${RESET} command that allows you to read a file. "
 read -p " Most of the times though, your files are too long to be printed all at once. "
