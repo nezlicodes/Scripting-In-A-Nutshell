@@ -32,7 +32,7 @@ else
 fi
 
 printf " \n\t${BLUE} "
-echo " |===                                                        |    4%"
+echo " |=                                                        |    4%"
 printf "\n${RESET}"
 
 ## PWD
@@ -49,7 +49,7 @@ read -p " Awesome!"
 read -p " ${RED}pwd${RESET} stands for print working directory, it displays the full path of your directory."
 
 printf " \n\t${BLUE} "
-echo " |====                                                        |    9%"
+echo " |==                                                        |    9%"
 printf "\n${RESET}"
 
 
@@ -65,7 +65,9 @@ done
 printf "  \t> ${GREEN}$(date)\n${NC}\n" 
 read -p " Wow $username you learn so fast."
 
-echo " |=========                                                  |    19%" 
+printf " \n\t${BLUE} "
+echo " |===                                                        |    14%"
+printf "\n${RESET}"
 
 ## Ls
 read -p " Now, there are a bunch of files and folders in this directory. Let's explore them."
@@ -91,9 +93,11 @@ done
 printf " \t> ${GREEN}$(ls -l)\n${NC}"
 read -p " As you can see, you have now a list of all files and directories with some attributes about each file like date and size. "
 
-echo " |=======================                                                        |    36%" 
+printf " \n\t${BLUE} "
+echo " |====                                                        |    23%"
+printf "\n${RESET}"
 
-read -p " Alright, let's navigate to the empty_folder directory to see if it is truely empty. "
+read -p " Alright, let's navigate to the empty_folder to see if it is truely empty. "
 printf " We will use the change directory or ${RED}cd${RESET} command. Type ${RED}cd empty_folder${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'cd empty_folder' ]]
@@ -103,6 +107,10 @@ do
 done
 printf " \t> ${GREEN}$(pwd)/empty_folder\n${NC}"
 read -p " Awesome."
+
+printf " \n\t${BLUE} "
+echo " |======                                                        |    27%"
+printf "\n${RESET}"
 
 read -p " Practice time! "
 printf " List the content of this folder based on what you learned so far:\n\t$ "
@@ -114,6 +122,12 @@ do
 done 
 printf " \t> ${GREEN}$(ls empty_folder)\n${NC}" 
 read -p " Yeah! Keep the progress up! "
+
+
+printf " \n\t${BLUE} "
+echo " |========                                                        |    32%"
+printf "\n${RESET}"  
+
 
 read -p " It looks like the folder is truely empty."
 read -p " Or is it ?"
@@ -129,6 +143,10 @@ do
 done
 printf " \t> ${GREEN}$(ls -Ca empty_folder)${NC}\n"
 
+printf " \n\t${BLUE} "
+echo " |=========                                                        |    37%"
+printf "\n${RESET}"  
+
 #READING FILES AND EXAMINING FILES
 read -p " I bet now you want to know what kind of dark secret is hidden in the .secret file, don't you? "
 read -p " Well, that's good because you are about to learn how to examine a file. "
@@ -143,6 +161,10 @@ done
 printf " \t> ${GREEN}$(cat empty_folder/.secret)${NC}\n"
 read -p " Spooky."
 
+printf " \n\t\t${BLUE} "
+echo " |===========              |    42%"
+printf "\n${RESET}" 
+
 ## CD ..
 read -p " Let's do some more exiting work now with our dna.txt file. "
 read -p " First off, we need to navigate back to the parent directory. "
@@ -156,6 +178,10 @@ done
 printf " \t> ${GREEN}$(pwd)${NC}\n"
 read -p " Good."
 
+
+printf " \n\t\t${BLUE} "                                 
+echo " |===========              |    47%"
+printf "\n${RESET}" 
 
 ## Making directories.
 read -p " One important piece of bioinformatics is project organization. "
@@ -172,6 +198,10 @@ done
 printf " \t> ${GREEN}$(mkdir dna_sequences)${NC}\n"
 read -p " Awesome $username."
 
+printf " \n\t\t${BLUE} "
+echo " |============             |    52%"                                                                            
+printf "\n${RESET}" 
+
 ## Copying files.
 read -p " Let's copy now the dna.txt file in that folder. "
 printf " Enter  ${RED}cp dna.txt dna_sequences${RESET}\n\t$ " 
@@ -184,6 +214,9 @@ done
 printf " \t> ${GREEN}$(cp dna.txt dna_sequences)${NC}\n"
 read -p " Awesome $username." 
 
+printf " \n\t\t${BLUE} "      
+echo " |==============           |    56%"                                                                        
+printf "\n${RESET}" 
 
 ## Ls /dir
 read -p " Just to make sure that it has been copied, we will list the content of dna_sequences."
@@ -197,6 +230,9 @@ done
 printf " \t> ${GREEN}$(ls dna_sequences)${NC}\n"
 read -p " Awesome $username."
 
+printf " \n\t\t${BLUE} "         
+echo " |===============          |    60%"                                                                    
+printf "\n${RESET}" 
 
 ## REMOVING FILES
 read -p " Since our file is copied, we don't need it anymore. To delete it we will use the remove command."
@@ -211,6 +247,10 @@ printf " \t> ${GREEN}$(rm dna.txt)${NC}\n"
 read -p " Awesome $username."
 
 
+printf " \n\t\t${BLUE} "         
+echo " |================         |    64%"                                                                             
+printf "\n${RESET}"  
+
 ## REMOVING DIRECTORIES
 read -p " Also, since it's useless by now, we can delete the empty_folder. "
 read -p " In order to do this, you have to use the -r (for recursively) option with the remove command"
@@ -224,6 +264,10 @@ done
 printf " \t> ${GREEN}$(rm -r empty_folder)${NC}\n"
 read -p " You're nailing it!"
 
+printf " \n\t\t${BLUE} "   
+echo " |=================        |    68%"                                                                             
+printf "\n${RESET}" 
+
 ## Ls
 printf " List the content of the directory to make sure that you have dont it right:\n\t$ "
 read -p "" dir
@@ -234,6 +278,11 @@ do
 done
 printf " \t> ${GREEN}$(ls)${NC}\n"
 read -p " You're nailing it!" 
+
+
+printf " \n\t\t${BLUE} "  
+echo " |==================       |    72%"                                                            
+printf "\n${RESET}" 
 
 ## mv
 read -p " We will now copy the dna2.txt file to the dna_sequences folder. "
@@ -248,6 +297,10 @@ done
 printf " \t> ${GREEN}$(mv dna2.txt dna_sequences)${NC}\n"
 read -p " You're nailing it!"
 
+printf " \n\t\t${BLUE} " 
+echo " |==================       |    76%" 
+printf "\n${RESET}"
+
 
 ## Ls
 printf " Again, list the content of the directory to make sure that you have dont it right:\n\t$ "
@@ -259,6 +312,10 @@ do
 done
 printf " \t> ${GREEN}$(ls)${NC}\n"
 read -p " You're nailing it!"
+
+printf " \n\t\t${BLUE} " 
+echo " |====================     |    80%"                                                 
+printf "\n${RESET}"
 
 
 ## cd dna_sequences
@@ -272,6 +329,12 @@ done
 printf " \t> ${GREEN}$(cd dna_sequences)${NC}\n"
 read -p " You're nailing it!" 
 
+printf " \n\t\t${BLUE} "
+echo " |====================     |    82%"
+printf "\n${RESET}"
+
+
+## Cat AND HEAD
 read -p " We just learned about the ${RED}cat${RESET} command that allows you to read a file. "
 read -p " Most of the times though, your files are too long to be printed all at once. "
 printf " Try for example to read the file 'dna.txt' using the ${RED}cat dna.txt${RESET} command\n\t$  "
@@ -307,6 +370,11 @@ do
 done
 printf " \t> ${GREEN}$(head -n3 dna_sequences/dna.txt)${NC}\n"
 
+printf " \n\t\t${BLUE} "
+echo " |=======================  |    92%"
+printf "\n${RESET}"
+
+## TAIL
 printf " Alternatively, you can check the tail of your file using the ${RED}tail dna.txt${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'tail dna.txt' ]]
@@ -337,5 +405,9 @@ do
 	read -p "" dir
 done
 printf " \t> ${GREEN}$(wc -l dna_sequences/dna.txt)${NC}\n"
+
+printf " \n\t\t${BLUE} "
+echo " |=========================|    100%"
+printf "\n${RESET}"
 
 
