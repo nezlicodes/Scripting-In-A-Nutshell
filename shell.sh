@@ -144,8 +144,8 @@ read -p " It looks like the folder is truely empty."
 read -p " Or is it ?"
 read -p " The truth is that there is a secret file in this folder."
 read -p " By default, the ls command does not list files that start with '.' (called dot files)."
-read -p " To list it, you have to pass in the option -a to the ls command. "
-printf " Try it now. Type ${RED}ls -a${RESET}\n\t$ "
+read -p " To list them, you have to pass in the option -a to the ls command. "
+printf " Try out it now. Type ${RED}ls -a${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'ls -a'  ]]
 do
@@ -159,7 +159,7 @@ echo " |=========                                                        |    37
 printf "\n${RESET}"  
 
 #READING FILES AND EXAMINING FILES
-read -p " I bet now you want to know what kind of dark secret is hidden in the .secret file, don't you? "
+read -p " I bet you want to know what kind of dark secret is hidden in the .secret file, don't you? "
 read -p " Well, that's good because you are about to learn how to examine a file. "
 read -p " To read the content of a file, you have to execute the command ${RED}cat filename${RESET}"
 printf " Type ${RED}cat .secret${RESET}\n\t$ "
@@ -186,7 +186,7 @@ do
 	printf " Please enter: ${RED}cd ..${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> "
+printf " \t> \n"
 read -p " Good."
 
 
