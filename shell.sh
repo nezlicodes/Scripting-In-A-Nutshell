@@ -84,7 +84,7 @@ read -p " The ls command lists all files and directories in your current folder,
 read -p " and like all unix commands, ${RED}ls${RESET} has a handful of useful options you can use. "
 read -p " Suppose you want more details about the files in this directory."
 read -p " You can very much do so using the -l option. "
-printf " Type $(tput setaf 1)ls -l$(tput sgr0)\n\t$ "
+printf " To this it in action, type $(tput setaf 1)ls -l$(tput sgr0)\n\t$ "
 read -p "" dir
 while [[ $dir != 'ls -l' ]]
 do 
