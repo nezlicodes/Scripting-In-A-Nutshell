@@ -32,7 +32,7 @@ else
 fi
 
 printf " \n\t${BLUE} "
-echo " |=                                                        |    4%"
+echo " |=                         |    4%"
 printf "\n${RESET}"
 
 ## PWD
@@ -49,7 +49,7 @@ read -p " Awesome!"
 read -p " ${RED}pwd${RESET} stands for print working directory, it displays the full path of your directory."
 
 printf " \n\t${BLUE} "
-echo " |==                                                        |    9%"
+echo " |==                       |    9%"
 printf "\n${RESET}"
 
 
@@ -66,7 +66,7 @@ printf "  \t> ${GREEN}$(date)\n${NC}\n"
 read -p " Wow $username you learn so fast."
 
 printf " \n\t${BLUE} "
-echo " |===                                                        |    14%"
+echo " |===                      |    14%"
 printf "\n${RESET}"
 
 ## Ls
@@ -95,7 +95,7 @@ printf " \t> ${GREEN}$(ls -l)\n${NC}"
 read -p " As you can see, you have now a list of all files and directories with some attributes about each file like date and size. "
 
 printf " \n\t${BLUE} "
-echo " |====                                                        |    23%"
+echo " |====                     |    23%"
 printf "\n${RESET}"
 printf " You can also sort the files and directories by modification time using the ${RED}-t${RESET} option. Go ahead and try it out:\n\t\$ "
 read -p "" dir
@@ -120,7 +120,7 @@ printf " \t> ${GREEN}$(pwd)/empty_folder\n${NC}"
 read -p " Awesome."
 
 printf " \n\t${BLUE} "
-echo " |======                                                        |    27%"
+echo " |======                   |    27%"
 printf "\n${RESET}"
 
 read -p " Practice time! "
@@ -136,7 +136,7 @@ read -p " Yeah! Keep the progress up! "
 
 
 printf " \n\t${BLUE} "
-echo " |========                                                        |    32%"
+echo " |========                   |    32%"
 printf "\n${RESET}"  
 
 
@@ -155,7 +155,7 @@ done
 printf " \t> ${GREEN}$(ls -Ca empty_folder)${NC}\n"
 
 printf " \n\t${BLUE} "
-echo " |=========                                                        |    37%"
+echo " |=========                 |    37%"
 printf "\n${RESET}"  
 
 #READING FILES AND EXAMINING FILES
@@ -248,7 +248,7 @@ printf "\n${RESET}"
 
 ## REMOVING FILES
 read -p " Since our file is copied, we don't need it anymore. To delete it we will use the remove command."
-printf " Go ahead %s, just enter ${RED}rm dna.txt ${RESET}\n\t$ " $username
+printf " Go ahead, just enter ${RED}rm dna.txt ${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != "rm dna.txt" ]]
 do
@@ -353,14 +353,14 @@ printf " Try for example to read the file 'dna.txt' using the ${RED}cat dna.txt$
 read -p "" dir
 while [[ $dir != 'cat dna.txt' ]]
 do
-	printf " Type: ${RED}cat dna_sequences/dna.txt${RESET}\n\t$ "
+	printf " Type: ${RED}cat dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
 printf " \t> ${GREEN}$(cat dna_sequences/dna.txt)${NC}\n"
 read -p " Wow, pretty long right? "
-read -p " Let's say you want to check the first lines of the file only. "
+read -p " What if instead you just want to check the first few lines only? "
 read -p " There is a special command that allows you to do just that. "
-read -p " Let's check the head of the file dna.txt. "
+read -p " It is the ${RED}head${RESET} command, it only prints the first 10 lines of your file. "
 printf " Type ${RED}head dna.txt${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'head dna.txt' ]]
@@ -387,7 +387,8 @@ echo " |=======================  |    92%"
 printf "\n${RESET}"
 
 ## TAIL
-printf " Alternatively, you can check the tail of your file using the ${RED}tail dna.txt${RESET}\n\t$ "
+read -p " Alternatively, the ${RED}tail${RESET} command outputs the last lines of your files. "
+printf " Enter ${RED}tail dna.txt${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'tail dna.txt' ]]
 do
