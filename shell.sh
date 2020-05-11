@@ -103,7 +103,7 @@ do
 	printf " Just enter: ${RED}ls -t${RESET}\n\t$ "
 	read -p ""dir
 done
-printf " \t> ${GREEN}$(ls -l)${RESET}"
+printf " \t> ${GREEN}$(ls -t)${RESET}"
 read -p "You're nailing it!"
 	
 read -p " Alright, let's navigate to the empty_folder to see if it is truely empty. "
