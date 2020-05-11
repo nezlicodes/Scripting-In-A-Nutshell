@@ -108,7 +108,8 @@ printf " \t> ${GREEN}$(ls -Ct)\n${RESET}"
 read -p " You're nailing it!"
 	
 read -p " Alright, let's navigate to the empty_folder to see if it is truely empty. "
-printf " We will use the change directory or ${RED}cd${RESET} command. Type ${RED}cd empty_folder${RESET}\n\t$ "
+read -p " We will use the change directory or ${RED}cd${RESET} command."
+printf " Type ${RED}cd empty_folder${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'cd empty_folder' ]]
 do
