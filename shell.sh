@@ -80,8 +80,8 @@ do
 done
 printf " \t> ${GREEN}$(ls -C)${NC}\n"
 read -p " Nice. "
-read -p " The ls command lists all files and directories in your current folder. "
-read -p " And like all unix commands, ${RED}ls${RESET} has a handful of useful options you can use. "
+read -p " The ls command lists all files and directories in your current folder, "
+read -p " and like all unix commands, ${RED}ls${RESET} has a handful of useful options you can use. "
 read -p " Let's say for example you want more details about the files in this directory."
 printf " You can very much do so using the -l option, type $(tput setaf 1)ls -l$(tput sgr0)\n\t$ "
 read -p "" dir
