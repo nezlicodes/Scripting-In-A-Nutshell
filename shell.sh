@@ -82,7 +82,7 @@ printf " \t> ${GREEN}$(ls -C)${NC}\n"
 read -p " Nice. "
 read -p " The ls command lists all files and directories in your current folder, "
 read -p " and like all unix commands, ${RED}ls${RESET} has a handful of useful options you can use. "
-read -p " Let's say for example you want more details about the files in this directory."
+read -p " Suppose you want more details about the files in this directory."
 printf " You can very much do so using the -l option, type $(tput setaf 1)ls -l$(tput sgr0)\n\t$ "
 read -p "" dir
 while [[ $dir != 'ls -l' ]]
@@ -101,7 +101,7 @@ read -p "" dir
 while [[ $dir != 'ls -t' ]]
 do
 	printf " Just enter: ${RED}ls -t${RESET}\n\t$ "
-	read -p ""dir
+	read -p "" dir
 done
 printf " \t> ${GREEN}$(ls -Ct)\n${RESET}"
 read -p " You're nailing it!"
@@ -175,16 +175,16 @@ echo " |===========              |    42%"
 printf "\n${RESET}" 
 
 ## CD ..
-read -p " Let's do some more exiting work now with our dna.txt file. "
+read -p " It's time to learn manipulating our dna.txt file. "
 read -p " First off, we need to navigate back to the parent directory. "
-printf " Type the command ${RED}cd .${RESET}\n\t$ "
+printf " Type the command ${RED}cd ..${RESET}\n\t$ "
 read -p "" dir
-while [[ $dir != "cd ." ]]
+while [[ $dir != "cd .." ]]
 do
-	printf " Please enter: ${RED}cd .${RESET}\n\t$ "
+	printf " Please enter: ${RED}cd ..${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(pwd)${NC}\n"
+printf " \t> "
 read -p " Good."
 
 
@@ -194,9 +194,10 @@ printf "\n${RESET}"
 
 ## Making directories.
 read -p " One important piece of bioinformatics is project organization. "
-read -p " It is quite important to have a clean well organized working directory because files add up really fast as we are going to see in the next courses. "
-read -p " Let's create a folder dna_sequences in which we will put all our dna.txt files. "
-read -p " Todo this, the make directory or ${RED}mkdir${RESET} command is used. "
+read -p " It is quite important to have a well organized working directory because files add up really fast "
+read -p " and if you don't have a way of organizing your files, you will easily lose track. "
+read -p " We will create a folder in which we will put all our dna.txt files. "
+read -p " Todo this, we will make use of the make directory or ${RED}mkdir${RESET} command. "
 printf " Type: ${RED}mkdir dna_sequences${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != "mkdir dna_sequences" ]]
@@ -212,8 +213,8 @@ echo " |============             |    52%"
 printf "\n${RESET}" 
 
 ## Copying files.
-read -p " Let's copy now the dna.txt file in that folder. "
-printf " Enter  ${RED}cp dna.txt dna_sequences${RESET}\n\t$ " 
+read -p " The next step is obviously copying the dna.txt file in that folder. "
+printf " Enter ${RED}cp dna.txt dna_sequences${RESET}\n\t$ " 
 read -p "" dir
 while [[ $dir != "cp dna.txt dna_sequences" ]]
 do
@@ -221,7 +222,7 @@ do
 	read -p "" dir
 done
 printf " \t> ${GREEN}$(cp dna.txt dna_sequences)${NC}\n"
-read -p " Awesome $username." 
+read -p " You got this! " 
 
 printf " \n\t\t${BLUE} "      
 echo " |==============           |    56%"                                                                        
@@ -229,15 +230,15 @@ printf "\n${RESET}"
 
 ## Ls /dir
 read -p " Just to make sure that it has been copied, we will list the content of dna_sequences."
-printf "You will not need to navigate to the folder this time. just enter ${RED}ls dna_sequences${RESET} "
+printf " You will not need to navigate to the folder this time. just enter ${RED}ls dna_sequences${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != "ls dna_sequences" ]] 
 do
 	printf " Please enter: ${RED}ls dna_sequences${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls dna_sequences)${NC}\n"
-read -p " Awesome $username."
+printf " \t> ${GREEN}$(ls -C dna_sequences)${NC}\n"
+read -p " Awesome $username!"
 
 printf " \n\t\t${BLUE} "         
 echo " |===============          |    60%"                                                                    
@@ -245,7 +246,7 @@ printf "\n${RESET}"
 
 ## REMOVING FILES
 read -p " Since our file is copied, we don't need it anymore. To delete it we will use the remove command."
-printf " Go ahead %s, just enter ${RED}rm dna.txt ${RESET} " $username
+printf " Go ahead %s, just enter ${RED}rm dna.txt ${RESET}\n\t$ " $username
 read -p "" dir
 while [[ $dir != "rm dna.txt" ]]
 do
@@ -253,7 +254,7 @@ do
 	read -p "" dir
 done
 printf " \t> ${GREEN}$(rm dna.txt)${NC}\n"
-read -p " Awesome $username."
+read -p " Awesome $username!"
 
 
 printf " \n\t\t${BLUE} "         
@@ -285,7 +286,7 @@ do
 	printf " Type: ${RED}ls${RESET}\n\t$ "
        	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls)${NC}\n"
+printf " \t> ${GREEN}$(ls -C)${NC}\n"
 read -p " You're nailing it!" 
 
 
@@ -296,7 +297,7 @@ printf "\n${RESET}"
 ## mv
 read -p " We will now copy the dna2.txt file to the dna_sequences folder. "
 read -p " This time, we will not use the ${RED}cp${RESET} command but rather the ${RED}mv${RESET} 'move' command"
-printf " Type: ${RED} mv dna2.txt dna_sequences${RESET} "
+printf " Type: ${RED} mv dna2.txt dna_sequences${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'mv dna2.txt dna_sequences' ]]
 do
@@ -304,7 +305,7 @@ do
 	read -p "" dir
 done
 printf " \t> ${GREEN}$(mv dna2.txt dna_sequences)${NC}\n"
-read -p " You're nailing it!"
+read -p ""
 
 printf " \n\t\t${BLUE} " 
 echo " |==================       |    76%" 
@@ -319,8 +320,8 @@ do
 	printf " Type: ${RED}ls${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls)${NC}\n"
-read -p " You're nailing it!"
+printf " \t> ${GREEN}$(ls -C)${NC}\n"
+read -p " Wow, you impress me!"
 
 printf " \n\t\t${BLUE} " 
 echo " |====================     |    80%"                                                 
@@ -336,7 +337,7 @@ do
 	read -p "" dir
 done
 printf " \t> ${GREEN}$(cd dna_sequences)${NC}\n"
-read -p " You're nailing it!" 
+read -p "" 
 
 printf " \n\t\t${BLUE} "
 echo " |====================     |    82%"
