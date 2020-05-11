@@ -96,7 +96,16 @@ read -p " As you can see, you have now a list of all files and directories with 
 printf " \n\t${BLUE} "
 echo " |====                                                        |    23%"
 printf "\n${RESET}"
-
+printf " You can also sort the files and directories by modification time using the ${RED}-t${RESET} option. Go ahead and try it out:\n\t\$ "
+read -p "" dir
+while [[ $dir != 'ls -t' ]]
+do
+	printf " Just enter: ${RED}ls -t${RESET}\n\t$ "
+	read -p ""dir
+done
+printf " \t> ${GREEN}$(ls -l)${RESET}"
+read -p "You're nailing it!"
+	
 read -p " Alright, let's navigate to the empty_folder to see if it is truely empty. "
 printf " We will use the change directory or ${RED}cd${RESET} command. Type ${RED}cd empty_folder${RESET}\n\t$ "
 read -p "" dir
