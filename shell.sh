@@ -54,7 +54,7 @@ printf "\n${RESET}"
 
 
 # Date 
-read -p " Let's check now what time is it."
+read -p " Let's check now what time it is."
 printf " To do so, type: ${RED}date${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != "date" ]]
