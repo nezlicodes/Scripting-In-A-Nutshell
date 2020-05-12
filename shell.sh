@@ -54,7 +54,7 @@ do
 	printf " Enter: ${RED}pwd${RESET}\n\t$ "
 	read -p "" dir
 done
-printf "  \t> ${GREEN}$(pwd)${NC}\n" || show_error $(pwd) "Awesome!"
+printf "  \t> ${GREEN}$(pwd)${NC}\n"
 read -p " ${RED}pwd${RESET} stands for print working directory, it displays the full path of your directory."
 
 printf " \n\t${BLUE} "
@@ -71,7 +71,7 @@ do
 	printf " Type ${RED}date${RESET}\n\t$ "
 	read -p "" dir
 done 
-printf "  \t> ${GREEN}$(date 2>/dev/null)\n${NC}\n" || show_error $(date)
+printf "  \t> ${GREEN}$(date 2>/dev/null)\n${NC}\n"
 read -p " Wow $username you learn so fast."
 
 printf " \n\t${BLUE} "
@@ -87,7 +87,7 @@ do
 	printf " Type ${RED}ls${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls -C 2>/dev/null)${NC}\n" || show_error $(ls -C)
+printf " \t> ${GREEN}$(ls -C)${NC}\n"
 
 read -p " Nice. "
 read -p " The ls command lists all files and directories in your current folder, "
@@ -101,7 +101,7 @@ do
 	printf " Enter: $(tput setaf 1) ls -l $(tput sgr0)\n\t\$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls -l 2>/dev/null)\n${NC}" || show_error $(ls -l)
+printf " \t> ${GREEN}$(ls -l)\n${NC}"
 
 read -p " As you can see, you have now a list of all files and directories with some attributes about each file like date and size. "
 
@@ -115,7 +115,7 @@ do
 	printf " Just enter: ${RED}ls -t${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls -Ct 2>/dev/null)\n${RESET}" || show_error $(ls -Ct)
+printf " \t> ${GREEN}$(ls -Ct)\n${RESET}"
 read -p " You're nailing it!"
 	
 read -p " Alright, let's navigate to the empty_folder to see if it is truely empty. "
@@ -128,6 +128,7 @@ do
 	read -p "" dir
 done
 cd empty_folder 2>/dev/null || show_error
+printf " \t> ${GREEN}${cd empty_folder}${RESET}"
 
 printf " \n\t${BLUE} "
 echo " |======                   |    27%"
@@ -141,7 +142,8 @@ do
 	printf " The correct command is: ${RED}ls${RESET}\n\t\$ "	
 	read -p "" dir
 done 
-printf " \t> ${GREEN}$(ls empty_folder 2>/dev/null)\n${NC}"  || show_error $(ls empty_folder)
+ls empty_folder 2>/dev/null || show_error
+printf " \t> ${GREEN}$(ls empty_folder)\n${NC}" 
 read -p " Yeah! Keep the progress up! "
 
 
@@ -162,7 +164,8 @@ do
 	printf " Please, type ${RED}ls -a${RESET}\n\t$ "
 	read -p	"" dir
 done
-printf " \t> ${GREEN}$(ls -Ca empty_folder 2>/dev/null)${NC}\n" || show_error $(ls -Ca empty_folder)  
+ls -Ca empty_folder 2>/dev/null|| show_error
+printf " \t> ${GREEN}$(ls -Ca empty_folder)${NC}\n"  
 printf " \n\t${BLUE} "
 echo " |=========                 |    37%"
 printf "\n${RESET}"  
@@ -178,7 +181,8 @@ do
 	printf " Please enter: ${RED}cat .secret${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(cat empty_folder/.secret 2>/dev/null)${NC}\n" || show_error $(cat empty_folder/.secret)  
+cat empty_folder/.secret 2>/dev/null || show_error 
+printf " \t> ${GREEN}$(cat empty_folder/.secret 2>/dev/null)${NC}\n" 
 read -p " Spooky."
 
 printf " \n\t\t${BLUE} "
@@ -216,8 +220,8 @@ do
 	printf " Please enter: ${RED}mkdir dna_sequences${RESET}\n\t$ "
 	read -p "" dir
 done
-
-printf " \t> ${GREEN}$(mkdir dna_sequences 2>/dev/null)${RESET}" || show_error $(mkdir dna_sequences)
+mkdir dna_sequences 2>/dev/null || show_error
+printf " \t> ${GREEN}$(mkdir dna_sequences)${RESET}"
 
 printf " \n\t\t${BLUE} "
 echo " |============             |    52%"                                                                            
@@ -232,7 +236,8 @@ do
 	printf " Please enter: ${RED}cp dna.txt dna_sequences${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(cp dna.txt dna_sequences 2>/dev/null)${NC}\n" || show_error $(cp dna.txt dna_sequences)
+cp dna.txt dna_sequences 2>/dev/null|| show_error
+printf " \t> ${GREEN}$(cp dna.txt dna_sequences)${NC}\n" 
 read -p " You got this! " 
 
 printf " \n\t\t${BLUE} "      
@@ -248,7 +253,8 @@ do
 	printf " Please enter: ${RED}ls dna_sequences${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls -C dna_sequences 2>/dev/null)${NC}\n" || show_error $(ls -C dna_sequences)  
+ls -C dna_sequences 2>/dev/null || show_error
+printf " \t> ${GREEN}$(ls -C dna_sequences)${NC}\n" || show_error $(ls -C dna_sequences)  
 read -p " Awesome!"
 
 printf " \n\t\t${BLUE} "         
@@ -264,7 +270,8 @@ do
 	printf " Please enter: ${RED}rm dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(rm dna.txt 2>/dev/null)${NC}\n" || show_error $(rm dna.txt) 
+rm dna.txt 2>/dev/null|| show_error 
+printf " \t> ${GREEN}$(rm dna.txt)${NC}\n" 
 read -p " Awesome $username!"
 
 
@@ -282,7 +289,8 @@ do
 	printf " Type: ${RED}rm -r empty_folder${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(rm -r empty_folder 2>/dev/null)${NC}\n" || show_error $(rm -r empty_folder) 
+rm -r empty_folder 2>/dev/null|| show_error 
+printf " \t> ${GREEN}$(rm -r empty_folder)${NC}\n" 
 read -p " You're nailing it!"
 
 printf " \n\t\t${BLUE} "   
@@ -297,7 +305,8 @@ do
 	printf " Type: ${RED}ls${RESET}\n\t$ "
        	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls -C 2>/dev/null)${NC}\n" || show_error $(ls -C) 
+ls -C 2>/dev/null || show_error 
+printf " \t> ${GREEN}$(ls -C)${NC}\n"
 read -p " You're nailing it!" 
 
 
@@ -315,7 +324,8 @@ do
 	printf " Type: ${RED}mv dna2.txt dna_sequences${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(mv dna2.txt dna_sequences 2>/dev/null)${NC}\n" || show_error $(mv dna2.txt dna_sequences) 
+mv dna2.txt dna_sequences 2>/dev/null|| show_error
+printf " \t> ${GREEN}$(mv dna2.txt dna_sequences)${NC}\n" 
 read -p ""
 
 printf " \n\t\t${BLUE} " 
@@ -331,7 +341,8 @@ do
 	printf " Type: ${RED}ls${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls -C 2>/dev/null)${NC}\n" || show_error $(ls -C) 
+ls -C 2>/dev/null|| show_error
+printf " \t> ${GREEN}$(ls -C)${NC}\n" 
 read -p " Wow, you impress me!"
 
 printf " \n\t\t${BLUE} " 
@@ -347,7 +358,8 @@ do
 	printf " Type: ${RED}cd dna_sequences${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(cd dna_sequences 2>/dev/null)${NC}\n" || show_error $(cd dna_sequences) 
+cd dna_sequences 2>/dev/null || show_error
+printf " \t> ${GREEN}$(cd dna_sequences )${NC}\n" 
 read -p "" 
 
 printf " \n\t\t${BLUE} "
@@ -377,8 +389,8 @@ do
 	printf " Type ${RED}head dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-
-printf " \t> ${GREEN}$(head dna_sequences/dna.txt 2>/dev/null)${NC}\n" || show_error $(head dna_sequences/dna.txt) 
+head dna_sequences/dna.txt 2>/dev/null|| show_error
+printf " \t> ${GREEN}$(head dna_sequences/dna.txt)${NC}\n" 
 read -p " That's much cleaner, right? " 
 read -p " The ${RED}head${RESET} command accepts some options. "
 read -p " You can for example choose how many lines you want to read with the ${RED}-n${RESET} option. "
@@ -389,7 +401,8 @@ do
 	printf " Type:  ${RED}head -n3 dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(head -n3 dna_sequences/dna.txt 2>/dev/null)${NC}\n" || show_error $(head -n3 dna_sequences/dna_sequences) 
+head -n3 dna_sequences/dna.txt 2>/dev/null|| show_error
+printf " \t> ${GREEN}$(head -n3 dna_sequences/dna.txt)${NC}\n" 
 printf " \n\t\t${BLUE} "
 echo " |=======================  |    92%"
 printf "\n${RESET}"
@@ -403,7 +416,8 @@ do
 	printf " Please enter: ${RED}tail dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(tail dna_sequences/dna.txt 2>/dev/null)${NC}\n" || show_error $(tail dna_sequences/dna.txt) 
+tail dna_sequences/dna.txt 2>/dev/null|| show_error
+printf " \t> ${GREEN}$(tail dna_sequences/dna.txt)${NC}\n" 
 read -p " There are other widely used commands to read files that I will let you explore on your own. "
 read -p " For now, let's continue exploring our files. "
 read -p " You just saw that dna.txt was a pretty long file.  "
@@ -425,5 +439,6 @@ do
 	printf " Please enter: ${RED}wc -l dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(wc -l dna_sequences/dna.txt 2>/dev/null)${NC}\n" || show_error $(wc -l dna_sequences/dna.txt) 
+wc -l dna_sequences/dna.txt 2>/dev/null|| show_error
 
+printf " \t> ${GREEN}$(wc -l dna_sequences/dna.txt)${NC}\n" 
