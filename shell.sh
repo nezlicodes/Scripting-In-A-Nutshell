@@ -14,9 +14,9 @@ show_error() {
 		read -p " Oops, it looks like there is an error.."                 
 		read -p " If this is your first time running the program, please report this problem at: benmeradi.lilyanezli@gmail.com"
 		read -p " If you already ran this program once, make sure your working directory is set just as you've downloaded it the first time. "  
-		read -p " Or even better, I challenge you to set it back yourself using the command line! "     
-		exit 1;     
-	fi           
+		read -p " Or even better, I challenge you to set it back yourself using the command line! "     	     
+	fi   
+	exit 1;        
 }   
 
 ##Welcome and username
@@ -129,7 +129,13 @@ do
 	printf " Type ${RED}cd empty_folder${RESET}\n\t$ " 
 	read -p "" dir
 done
-read -p " Awesome."
+if [[ $(cd empty_folder 2>/dev/null)  ]];
+then
+	printf " \t> ${GREEN}$(cd empty_folder)${RESET}"
+	read -p " Awesome."
+else
+	 show_error $(cd empty_folder)
+fi
 
 printf " \n\t${BLUE} "
 echo " |======                   |    27%"
@@ -383,7 +389,7 @@ done
 printf " \t> ${GREEN}$(head dna_sequences/dna.txt 2>/dev/null)${NC}\n" || show_error $(head dna_sequences/dna.txt) 
 read -p " That's much cleaner, right? " 
 read -p " The ${RED}head${RESET} command accepts some options. "
-read -p " You can for example chose how many lines you want to read with the ${RED}-n${RESET} option. "
+read -p " You can for example choose how many lines you want to read with the ${RED}-n${RESET} option. "
 printf " To print the first 3 lines of your file, enter ${RED}head -n3 dna.txt${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'head -n3 dna.txt' ]]
@@ -409,7 +415,7 @@ printf " \t> ${GREEN}$(tail dna_sequences/dna.txt 2>/dev/null)${NC}\n" || show_e
 read -p " There are other widely used commands to read files that I will let you explore on your own. "
 read -p " For now, let's continue exploring our files. "
 read -p " You just saw that dna.txt was a pretty long file.  "
-read -p " But how many word exactly does it contain? "
+read -p " But how many words exactly does it contain? "
 printf " To answer this question, we use the word count or wc command: ${RED}wc dna.txt${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'wc dna.txt' ]]
@@ -419,7 +425,8 @@ do
 done
 printf " \t> ${GREEN}$(wc dna_sequences/dna.txt 2>/dev/null)${NC}\n" || show_error $(wc dna_sequences/dna.txt) 
 read -p " This command outputs the number of lines, the number of words and the number of characters your file contain. "
-printf " You can also check how many lines are in the file: with the option -l: ${RED}wc -l dna.txt${RESET}\n\t$ " 
+read -p " You can also check how many lines are in the file: with the option -l. "
+printf " Type ${RED}wc -l dna.txt${RESET}\n\t$ " 
 read -p "" dir
 while [[ $dir != 'wc -l dna.txt' ]]
 do
@@ -427,6 +434,4 @@ do
 	read -p "" dir
 done
 printf " \t> ${GREEN}$(wc -l dna_sequences/dna.txt 2>/dev/null)${NC}\n" || show_error $(wc -l dna_sequences/dna.txt) 
-printf " \n\t\t${BLUE} "
-echo " |=========================|    100%"
-printf "\n${RESET}"
+
