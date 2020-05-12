@@ -128,7 +128,7 @@ do
 	read -p "" dir
 done
 cd empty_folder 2>/dev/null || show_error
-printf " \t> ${GREEN}$(cd empty_folder)${RESET}"
+printf " \t> ${GREEN}$(cd empty_folder 2>/dev/null)\n${RESET}"
 
 printf " \n\t${BLUE} "
 echo " |======                   |    27%"
@@ -142,8 +142,7 @@ do
 	printf " The correct command is: ${RED}ls${RESET}\n\t\$ "	
 	read -p "" dir
 done 
-ls empty_folder 2>/dev/null || show_error
-printf " \t> ${GREEN}$(ls empty_folder)\n${NC}" 
+printf " \t> ${GREEN}$(ls empty_folder 2>/dev/null)\n${NC}" 
 read -p " Yeah! Keep the progress up! "
 
 
@@ -164,8 +163,7 @@ do
 	printf " Please, type ${RED}ls -a${RESET}\n\t$ "
 	read -p	"" dir
 done
-ls -Ca empty_folder 2>/dev/null|| show_error
-printf " \t> ${GREEN}$(ls -Ca empty_folder)${NC}\n"  
+printf " \t> ${GREEN}$(ls -Ca empty_folder 2>/dev/null)${NC}\n"  
 printf " \n\t${BLUE} "
 echo " |=========                 |    37%"
 printf "\n${RESET}"  
