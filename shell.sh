@@ -140,7 +140,7 @@ echo " |========                   |    32%"
 printf "\n${RESET}"  
 
 
-read -p " It looks like the folder is truely empty."
+read -p " No output has been returned. It looks like the folder is truely empty."
 read -p " Or is it ?"
 read -p " The truth is that there is a secret file in this folder."
 read -p " By default, the ls command does not list files that start with '.' (called dot files)."
