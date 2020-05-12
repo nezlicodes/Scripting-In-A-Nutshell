@@ -9,13 +9,11 @@ RESET=$(tput sgr0)
 
 ## MY FUNCTIONS 
 show_error() {
-	if [[ !$1 ]];
-	then
 		read -p " Oops, it looks like there is an error.."                 
 		read -p " If this is your first time running the program, please report this problem at: benmeradi.lilyanezli@gmail.com"
 		read -p " If you already ran this program once, make sure your working directory is set just as you've downloaded it the first time. "  
 		read -p " Or even better, I challenge you to set it back yourself using the command line! "     	     
-	fi   
+   
 	exit 1;        
 }   
 
@@ -129,13 +127,7 @@ do
 	printf " Type ${RED}cd empty_folder${RESET}\n\t$ " 
 	read -p "" dir
 done
-if [[ $(cd empty_folder 2>/dev/null)  ]];
-then
-	printf " \t> ${GREEN}$(cd empty_folder)${RESET}"
-	read -p " Awesome."
-else
-	 show_error $(cd empty_folder)
-fi
+cd empty_folder 2>/dev/null || show_error
 
 printf " \n\t${BLUE} "
 echo " |======                   |    27%"
