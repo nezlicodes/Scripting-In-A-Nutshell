@@ -128,7 +128,7 @@ do
 	read -p "" dir
 done
 cd empty_folder 2>/dev/null || show_error
-printf " \t> ${GREEN}${cd empty_folder}${RESET}"
+printf " \t> ${GREEN}$(cd empty_folder)${RESET}"
 
 printf " \n\t${BLUE} "
 echo " |======                   |    27%"
