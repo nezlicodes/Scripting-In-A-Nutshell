@@ -7,6 +7,17 @@ BLUE='\033[0;34m'
 RED=$(tput setaf 1) 
 RESET=$(tput sgr0)
 
+## MY FUNCTIONS 
+show_error() {
+	if [[ !$1 ]];
+	then
+		read -p " Oops, it looks like there is an error.."                 
+		read -p " If this is your first time running the program, please report this problem at: benmeradi.lilyanezli@gmail.com"
+		read -p " If you already ran this program once, make sure your working directory is set just as you've downloaded it the first time. "  
+		read -p " Or even better, I challenge you to set it back yourself using the command line! "          
+	fi           
+}   
+
 ##Welcome and username
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - -\n"
 printf "\t   Welcome to learn_shell. A program built by the digital-codon\n\t   platform, that teaches shell scripting inside the shell.\n"
@@ -44,8 +55,7 @@ do
 	printf " Enter: ${RED}pwd${RESET}\n\t$ "
 	read -p "" dir
 done
-printf "  \t> ${GREEN}$(pwd)${NC}\n" 
-read -p " Awesome!"
+printf "  \t> ${GREEN}$(pwd)${NC}\n" || show_error $(pwd) "Awesome!"
 read -p " ${RED}pwd${RESET} stands for print working directory, it displays the full path of your directory."
 
 printf " \n\t${BLUE} "
@@ -62,7 +72,7 @@ do
 	printf " Type ${RED}date${RESET}\n\t$ "
 	read -p "" dir
 done 
-printf "  \t> ${GREEN}$(date)\n${NC}\n" 
+printf "  \t> ${GREEN}$(date 2>null/dev)\n${NC}\n" || show_error $(date)
 read -p " Wow $username you learn so fast."
 
 printf " \n\t${BLUE} "
@@ -78,7 +88,8 @@ do
 	printf " Type ${RED}ls${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls -C)${NC}\n"
+printf " \t> ${GREEN}$(ls -C 2>/dev/null)${NC}\n" || show_error $(ls -C)
+
 read -p " Nice. "
 read -p " The ls command lists all files and directories in your current folder, "
 read -p " and like all unix commands, ${RED}ls${RESET} has a handful of useful options you can use. "
@@ -91,7 +102,8 @@ do
 	printf " Enter: $(tput setaf 1) ls -l $(tput sgr0)\n\t\$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls -l)\n${NC}"
+printf " \t> ${GREEN}$(ls -l 2>/dev/null)\n${NC}" || show_error $(ls -l)
+
 read -p " As you can see, you have now a list of all files and directories with some attributes about each file like date and size. "
 
 printf " \n\t${BLUE} "
@@ -104,7 +116,7 @@ do
 	printf " Just enter: ${RED}ls -t${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls -Ct)\n${RESET}"
+printf " \t> ${GREEN}$(ls -Ct 2>/dev/null)\n${RESET}" || show_error $(ls -Ct)
 read -p " You're nailing it!"
 	
 read -p " Alright, let's navigate to the empty_folder to see if it is truely empty. "
@@ -116,7 +128,6 @@ do
 	printf " Type ${RED}cd empty_folder${RESET}\n\t$ " 
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(pwd)/empty_folder\n${NC}"
 read -p " Awesome."
 
 printf " \n\t${BLUE} "
@@ -131,7 +142,7 @@ do
 	printf " The correct command is: ${RED}ls${RESET}\n\t\$ "	
 	read -p "" dir
 done 
-printf " \t> ${GREEN}$(ls empty_folder)\n${NC}" 
+printf " \t> ${GREEN}$(ls empty_folder 2>/dev/null)\n${NC}"  || show_error $(ls empty_folder)
 read -p " Yeah! Keep the progress up! "
 
 
@@ -152,8 +163,7 @@ do
 	printf " Please, type ${RED}ls -a${RESET}\n\t$ "
 	read -p	"" dir
 done
-printf " \t> ${GREEN}$(ls -Ca empty_folder)${NC}\n"
-
+printf " \t> ${GREEN}$(ls -Ca empty_folder 2>/dev/null)${NC}\n" || show_error $(ls -Ca empty_folder)  
 printf " \n\t${BLUE} "
 echo " |=========                 |    37%"
 printf "\n${RESET}"  
@@ -169,7 +179,7 @@ do
 	printf " Please enter: ${RED}cat .secret${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(cat empty_folder/.secret)${NC}\n"
+printf " \t> ${GREEN}$(cat empty_folder/.secret 2>/dev/null)${NC}\n" || show_error $(cat empty_folder/.secret)  
 read -p " Spooky."
 
 printf " \n\t\t${BLUE} "
@@ -208,17 +218,7 @@ do
 	read -p "" dir
 done
 
-printf " \t> ${GREEN}$(mkdir dna_sequences 2>/dev/null)${RESET}"
-show_error() {
-	if [[ !$1 ]];
-	then
-		read -p " Oops, it looks like this directory already exists."
-		read -p " If this is your first time running the program, please report this problem at: benmeradi.lilyanezli@gmail.com "
-		read -p " If you already ran this program once, make sure your working directory is set just as you've downloaded it the first time. "
-		read -p " Or even better, I challenge you to set it back yourself using the command line! "
-	fi
-}
-show_error $(mkdir dna_sequences)
+printf " \t> ${GREEN}$(mkdir dna_sequences 2>/dev/null)${RESET}" || show_error $(mkdir dna_sequences)
 
 printf " \n\t\t${BLUE} "
 echo " |============             |    52%"                                                                            
@@ -233,7 +233,7 @@ do
 	printf " Please enter: ${RED}cp dna.txt dna_sequences${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(cp dna.txt dna_sequences)${NC}\n"
+printf " \t> ${GREEN}$(cp dna.txt dna_sequences 2>/dev/null)${NC}\n" || show_error $(cp dna.txt dna_sequences)
 read -p " You got this! " 
 
 printf " \n\t\t${BLUE} "      
@@ -249,8 +249,8 @@ do
 	printf " Please enter: ${RED}ls dna_sequences${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls -C dna_sequences)${NC}\n"
-read -p " Awesome $username!"
+printf " \t> ${GREEN}$(ls -C dna_sequences 2>/dev/null)${NC}\n" || show_error $(ls -C dna_sequences)  
+read -p " Awesome!"
 
 printf " \n\t\t${BLUE} "         
 echo " |===============          |    60%"                                                                    
@@ -265,7 +265,7 @@ do
 	printf " Please enter: ${RED}rm dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(rm dna.txt)${NC}\n"
+printf " \t> ${GREEN}$(rm dna.txt 2>/dev/null)${NC}\n" || show_error $(rm dna.txt) 
 read -p " Awesome $username!"
 
 
@@ -283,7 +283,7 @@ do
 	printf " Type: ${RED}rm -r empty_folder${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(rm -r empty_folder)${NC}\n"
+printf " \t> ${GREEN}$(rm -r empty_folder 2>/dev/null)${NC}\n" || show_error $(rm -r empty_folder) 
 read -p " You're nailing it!"
 
 printf " \n\t\t${BLUE} "   
@@ -298,7 +298,7 @@ do
 	printf " Type: ${RED}ls${RESET}\n\t$ "
        	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls -C)${NC}\n"
+printf " \t> ${GREEN}$(ls -C 2>/dev/null)${NC}\n" || show_error $(ls -C) 
 read -p " You're nailing it!" 
 
 
@@ -316,7 +316,7 @@ do
 	printf " Type: ${RED}mv dna2.txt dna_sequences${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(mv dna2.txt dna_sequences)${NC}\n"
+printf " \t> ${GREEN}$(mv dna2.txt dna_sequences 2>/dev/null)${NC}\n" || show_error $(mv dna2.txt dna_sequences) 
 read -p ""
 
 printf " \n\t\t${BLUE} " 
@@ -332,7 +332,7 @@ do
 	printf " Type: ${RED}ls${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(ls -C)${NC}\n"
+printf " \t> ${GREEN}$(ls -C 2>/dev/null)${NC}\n" || show_error $(ls -C) 
 read -p " Wow, you impress me!"
 
 printf " \n\t\t${BLUE} " 
@@ -348,7 +348,7 @@ do
 	printf " Type: ${RED}cd dna_sequences${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(cd dna_sequences)${NC}\n"
+printf " \t> ${GREEN}$(cd dna_sequences 2>/dev/null)${NC}\n" || show_error $(cd dna_sequences) 
 read -p "" 
 
 printf " \n\t\t${BLUE} "
@@ -379,7 +379,7 @@ do
 	read -p "" dir
 done
 
-printf " \t> ${GREEN}$(head dna_sequences/dna.txt)${NC}\n"
+printf " \t> ${GREEN}$(head dna_sequences/dna.txt 2>/dev/null)${NC}\n" || show_error $(head dna_sequences/dna.txt) 
 read -p " That's much cleaner, right? " 
 read -p " The ${RED}head${RESET} command accepts some options. "
 read -p " You can for example chose how many lines you want to read with the ${RED}-n${RESET} option. "
@@ -390,8 +390,7 @@ do
 	printf " Type:  ${RED}head -n3 dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(head -n3 dna_sequences/dna.txt)${NC}\n"
-
+printf " \t> ${GREEN}$(head -n3 dna_sequences/dna.txt 2>/dev/null)${NC}\n" || show_error $(head -n3 dna_sequences/dna_sequences) 
 printf " \n\t\t${BLUE} "
 echo " |=======================  |    92%"
 printf "\n${RESET}"
@@ -405,8 +404,7 @@ do
 	printf " Please enter: ${RED}tail dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(tail dna_sequences/dna.txt)${NC}\n"
-
+printf " \t> ${GREEN}$(tail dna_sequences/dna.txt 2>/dev/null)${NC}\n" || show_error $(tail dna_sequences/dna.txt) 
 read -p " There are other widely used commands to read files that I will let you explore on your own. "
 read -p " For now, let's continue exploring our files. "
 read -p " You just saw that dna.txt was a pretty long file.  "
@@ -418,7 +416,7 @@ do
 	printf " Please enter: ${RED}wc dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(wc dna_sequences/dna.txt)${NC}\n"
+printf " \t> ${GREEN}$(wc dna_sequences/dna.txt 2>/dev/null)${NC}\n" || show_error $(wc dna_sequences/dna.txt) 
 read -p " This command outputs the number of lines, the number of words and the number of characters your file contain. "
 printf " You can also check how many lines are in the file: with the option -l: ${RED}wc -l dna.txt${RESET}\n\t$ " 
 read -p "" dir
@@ -427,16 +425,7 @@ do
 	printf " Please enter: ${RED}wc -l dna.txt${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(wc -l dna_sequences/dna.txt)${NC}\n"
-
+printf " \t> ${GREEN}$(wc -l dna_sequences/dna.txt 2>/dev/null)${NC}\n" || show_error $(wc -l dna_sequences/dna.txt) 
 printf " \n\t\t${BLUE} "
 echo " |=========================|    100%"
 printf "\n${RESET}"
-
-echo_error() {
-	   read -p " Oops, it looks like this directory already exists."
-	   read -p " If this is your first time running the program, please report this problem at: benmeradi.lilyanezli@gmail.com "
-	   read -p " If you already ran this program once, make sure your working directory is set just as you've downloaded it the first time. "
-	   read -p " Or even better, I challenge you to set it back yourself using the command line! "
-	
-}
