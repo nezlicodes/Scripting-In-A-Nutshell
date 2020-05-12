@@ -72,7 +72,7 @@ do
 	printf " Type ${RED}date${RESET}\n\t$ "
 	read -p "" dir
 done 
-printf "  \t> ${GREEN}$(date 2>null/dev)\n${NC}\n" || show_error $(date)
+printf "  \t> ${GREEN}$(date 2>/dev/null)\n${NC}\n" || show_error $(date)
 read -p " Wow $username you learn so fast."
 
 printf " \n\t${BLUE} "
