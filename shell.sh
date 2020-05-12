@@ -207,7 +207,16 @@ do
 	printf " Please enter: ${RED}mkdir dna_sequences${RESET}\n\t$ "
 	read -p "" dir
 done
-printf " \t> ${GREEN}$(mkdir dna_sequences)${NC}\n"
+
+printf " \t> ${GREEN}$(mkdir dna_sequences 2>/dev/null)${RESET}"
+if [[ !$(mkdir dna_sequences) ]];
+then
+	read -p " Oops, it looks like this directory already exists."
+        read -p " If this is your first time running the program, please report this problem at: benmeradi.lilyanezli@gmail.com "
+	read -p " If you already ran this program once, make sure your working directory is set just as you've downloaded it the first time. "
+	read -p " Or even better, I challenge you to set it back yourself using the command line! "
+fi
+	
 read -p " Awesome $username."
 
 printf " \n\t\t${BLUE} "
@@ -423,4 +432,10 @@ printf " \n\t\t${BLUE} "
 echo " |=========================|    100%"
 printf "\n${RESET}"
 
-
+echo_error() {
+	   read -p " Oops, it looks like this directory already exists."
+	   read -p " If this is your first time running the program, please report this problem at: benmeradi.lilyanezli@gmail.com "
+	   read -p " If you already ran this program once, make sure your working directory is set just as you've downloaded it the first time. "
+	   read -p " Or even better, I challenge you to set it back yourself using the command line! "
+	
+}
