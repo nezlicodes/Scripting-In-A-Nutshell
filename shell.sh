@@ -106,7 +106,6 @@ done
 printf " \t$ID>  ${GREEN}$(ls -C)${NC}\n"
 
 read -p " Nice. "
-read -p " The ls command lists all files and directories in your current folder, "
 read -p " and like all unix commands, ${RED}ls${RESET} has a handful of useful options you can use. "
 read -p " Suppose you want more details about the files in this directory."
 read -p " You can very much do so using the -l option. "
