@@ -4,19 +4,28 @@ GREEN='\033[0;33m'
 CC='\033[0;35m'
 NC='\033[0m'
 BLUE='\033[0;34m'
-RED=$(tput setaf 1) 
+RED=$(tput setaf 1)
 RESET=$(tput sgr0)
+DNAFILE="$(pwd)/dna.txt"
+DNA2FILE="$(pwd)/dna2.txt"
+EMPTY_FOLDER="$(pwd)/empty_folder"
+DOTSECRET="$(pwd)/empty_folder/.secret"
 
-## MY FUNCTIONS 
+## MY FUNCTIONS
 show_error() {
-		read -p " Oops, it looks like there is an error.."                 
-		read -p " If this is your first time running the program, please report this problem at: benmeradi.lilyanezli@gmail.com"
-		read -p " If you already ran this program once, make sure your working directory is set just as you've downloaded it the first time. "  
-		read -p " Or even better, I challenge you to set it back yourself using the command line! "     	     
-   
-	exit 1;        
-}   
+    read -p " Oops, it looks like there is an error.."
+    read -p " If this is your first time running the program, please report this problem at: benmeradi.lilyanezli@gmail.com"
+    read -p " If you already ran this program once, make sure your working directory is set just as you've downloaded it the first time. "
+    read -p " Or even better, I challenge you to set it back yourself using the command line! "
+    
+    exit 1;
+}
 
+if [[ ! -f "$DNAFILE" ||  ! -f "$DNA2FILE" || ! -f "$DOTSECRET" || ! -d "$EMPTY_FOLDER" ]];
+then
+	show_error
+    exit 1
+fi
 ##Welcome and username
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - -\n"
 printf "\t   Welcome to learn_shell. A program built by the digital-codon\n\t   platform, that teaches shell scripting inside the shell.\n"
@@ -27,18 +36,18 @@ printf " You can press ${RED}control + c${RESET} whenever you want to exit the p
 read -p " Got it? "
 read -p " Cool ! "
 read -p " By the way, what may I call you? " username
-if [[ $username ]]; 
+if [[ $username ]];
 then
-	read -p " Okay $username let's get started! "
+    read -p " Okay $username let's get started! "
 else
-	read -p " Are you sure you don't want to tell me your name? " username
-	if [[ $username ]];
-	then
-		        read -p " Okay $username let's get started! "
-		else
-			username="Shy Guest"
-			read -p " Okay, then I will just call you Shy Guest. "
-		fi
+    read -p " Are you sure you don't want to tell me your name? " username
+    if [[ $username ]];
+    then
+        read -p " Okay $username let's get started! "
+    else
+        username="Shy Guest"
+        read -p " Okay, then I will just call you Shy Guest. "
+    fi
 fi
 
 printf " \n\t${BLUE} "
@@ -51,8 +60,8 @@ printf " To display your current directory, type the command ${RED}pwd${RESET}\n
 read -p "" dir
 while [[ $dir != "pwd" ]]
 do
-	printf " Enter: ${RED}pwd${RESET}\n\t$ "
-	read -p "" dir
+    printf " Enter: ${RED}pwd${RESET}\n\t$ "
+    read -p "" dir
 done
 printf "  \t> ${GREEN}$(pwd)${NC}\n"
 read -p " ${RED}pwd${RESET} stands for print working directory, it displays the full path of your directory."
@@ -62,15 +71,15 @@ echo " |==                       |    9%"
 printf "\n${RESET}"
 
 
-# Date 
+# Date
 read -p " Let's check now what time it is."
 printf " To do so, type: ${RED}date${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != "date" ]]
 do
-	printf " Type ${RED}date${RESET}\n\t$ "
-	read -p "" dir
-done 
+    printf " Type ${RED}date${RESET}\n\t$ "
+    read -p "" dir
+done
 printf "  \t> ${GREEN}$(date 2>/dev/null)\n${NC}\n"
 read -p " Wow $username you learn so fast."
 
@@ -84,8 +93,8 @@ printf  " To list all files and directories, we use the ${RED}ls${RESET} command
 read -p "" dir
 while [[ $dir != "ls"  ]]
 do
-	printf " Type ${RED}ls${RESET}\n\t$ "
-	read -p "" dir
+    printf " Type ${RED}ls${RESET}\n\t$ "
+    read -p "" dir
 done
 printf " \t> ${GREEN}$(ls -C)${NC}\n"
 
@@ -97,9 +106,9 @@ read -p " You can very much do so using the -l option. "
 printf " To see this it in action, type $(tput setaf 1)ls -l$(tput sgr0)\n\t$ "
 read -p "" dir
 while [[ $dir != 'ls -l' ]]
-do 
-	printf " Enter: $(tput setaf 1) ls -l $(tput sgr0)\n\t\$ "
-	read -p "" dir
+do
+    printf " Enter: $(tput setaf 1) ls -l $(tput sgr0)\n\t\$ "
+    read -p "" dir
 done
 printf " \t> ${GREEN}$(ls -l)\n${NC}"
 
@@ -112,20 +121,20 @@ printf " You can also sort the files and directories by modification time using 
 read -p "" dir
 while [[ $dir != 'ls -t' ]]
 do
-	printf " Just enter: ${RED}ls -t${RESET}\n\t$ "
-	read -p "" dir
+    printf " Just enter: ${RED}ls -t${RESET}\n\t$ "
+    read -p "" dir
 done
 printf " \t> ${GREEN}$(ls -Ct)\n${RESET}"
 read -p " You're nailing it!"
-	
+
 read -p " Alright, let's navigate to the empty_folder to see if it is truely empty. "
 read -p " We will use the change directory or ${RED}cd${RESET} command."
 printf " Type ${RED}cd empty_folder${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'cd empty_folder' ]]
 do
-	printf " Type ${RED}cd empty_folder${RESET}\n\t$ " 
-	read -p "" dir
+    printf " Type ${RED}cd empty_folder${RESET}\n\t$ "
+    read -p "" dir
 done
 printf " \t> ${GREEN}$(cd empty_folder)\n${RESET}"
 
@@ -139,16 +148,16 @@ printf " List the content of this folder based on what you learned so far:\n\t$ 
 read -p "" dir
 while [[ $dir != 'ls' ]]
 do
-	printf " The correct command is: ${RED}ls${RESET}\n\t\$ "	
-	read -p "" dir
-done 
-printf " \t> ${GREEN}$(ls empty_folder)\n${NC}" 
+    printf " The correct command is: ${RED}ls${RESET}\n\t\$ "
+    read -p "" dir
+done
+printf " \t> ${GREEN}$(ls empty_folder)\n${NC}"
 read -p " Yeah! Keep the progress up! "
 
 
 printf " \n\t${BLUE} "
 echo " |========                   |    32%"
-printf "\n${RESET}"  
+printf "\n${RESET}"
 
 
 read -p " No output has been returned. It looks like the folder is truely empty."
@@ -160,13 +169,13 @@ printf " Try out it now. Type ${RED}ls -a${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'ls -a'  ]]
 do
-	printf " Please, type ${RED}ls -a${RESET}\n\t$ "
-	read -p	"" dir
+    printf " Please, type ${RED}ls -a${RESET}\n\t$ "
+    read -p	"" dir
 done
-printf " \t> ${GREEN}$(ls -Ca empty_folder)${NC}\n"  
+printf " \t> ${GREEN}$(ls -Ca empty_folder)${NC}\n"
 printf " \n\t${BLUE} "
 echo " |=========                 |    37%"
-printf "\n${RESET}"  
+printf "\n${RESET}"
 
 #READING FILES AND EXAMINING FILES
 read -p " I bet you want to know what kind of dark secret is hidden in the .secret file, don't you? "
@@ -176,15 +185,15 @@ printf " Type ${RED}cat .secret${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'cat .secret' ]]
 do
-	printf " Please enter: ${RED}cat .secret${RESET}\n\t$ "
-	read -p "" dir
+    printf " Please enter: ${RED}cat .secret${RESET}\n\t$ "
+    read -p "" dir
 done
-printf " \t> ${GREEN}$(cat empty_folder/.secret 2>/dev/null)${NC}\n" 
+printf " \t> ${GREEN}$(cat empty_folder/.secret 2>/dev/null)${NC}\n"
 read -p " Spooky."
 
 printf " \n\t\t${BLUE} "
 echo " |===========              |    42%"
-printf "\n${RESET}" 
+printf "\n${RESET}"
 
 ## CD ..
 read -p " It's time to learn manipulating our dna.txt file. "
@@ -193,16 +202,16 @@ printf " Type the command ${RED}cd ..${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != "cd .." ]]
 do
-	printf " Please enter: ${RED}cd ..${RESET}\n\t$ "
-	read -p "" dir
+    printf " Please enter: ${RED}cd ..${RESET}\n\t$ "
+    read -p "" dir
 done
 printf " \t>${GREEN}$(cd ..)${RESET}\n"
 read -p " Good."
 
 
-printf " \n\t\t${BLUE} "                                 
+printf " \n\t\t${BLUE} "
 echo " |===========              |    47%"
-printf "\n${RESET}" 
+printf "\n${RESET}"
 
 ## Making directories.
 read -p " One important piece of bioinformatics is project organization. "
@@ -214,46 +223,46 @@ printf " Type: ${RED}mkdir dna_sequences${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != "mkdir dna_sequences" ]]
 do
-	printf " Please enter: ${RED}mkdir dna_sequences${RESET}\n\t$ "
-	read -p "" dir
+    printf " Please enter: ${RED}mkdir dna_sequences${RESET}\n\t$ "
+    read -p "" dir
 done
 printf " \t> ${GREEN}$(mkdir dna_sequences 2>/dev/null)${RESET}"
 
 printf " \n\t\t${BLUE} "
-echo " |============             |    52%"                                                                            
-printf "\n${RESET}" 
+echo " |============             |    52%"
+printf "\n${RESET}"
 
 ## Copying files.
 read -p " The next step is obviously copying the dna.txt file in that folder. "
-printf " Enter ${RED}cp dna.txt dna_sequences${RESET}\n\t$ " 
+printf " Enter ${RED}cp dna.txt dna_sequences${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != "cp dna.txt dna_sequences" ]]
 do
-	printf " Please enter: ${RED}cp dna.txt dna_sequences${RESET}\n\t$ "
-	read -p "" dir
+    printf " Please enter: ${RED}cp dna.txt dna_sequences${RESET}\n\t$ "
+    read -p "" dir
 done
-printf " \t> ${GREEN}$(cp dna.txt dna_sequences 2>/dev/null)${NC}\n" 
-read -p " You got this! " 
+printf " \t> ${GREEN}$(cp dna.txt dna_sequences 2>/dev/null)${NC}\n"
+read -p " You got this! "
 
-printf " \n\t\t${BLUE} "      
-echo " |==============           |    56%"                                                                        
-printf "\n${RESET}" 
+printf " \n\t\t${BLUE} "
+echo " |==============           |    56%"
+printf "\n${RESET}"
 
 ## Ls /dir
 read -p " Just to make sure that it has been copied, we will list the content of dna_sequences."
 printf " You will not need to navigate to the folder this time. just enter ${RED}ls dna_sequences${RESET}\n\t$ "
 read -p "" dir
-while [[ $dir != "ls dna_sequences" ]] 
+while [[ $dir != "ls dna_sequences" ]]
 do
-	printf " Please enter: ${RED}ls dna_sequences${RESET}\n\t$ "
-	read -p "" dir
+    printf " Please enter: ${RED}ls dna_sequences${RESET}\n\t$ "
+    read -p "" dir
 done
-printf " \t> ${GREEN}$(ls -C dna_sequences 2>/dev/null)${NC}\n" 
+printf " \t> ${GREEN}$(ls -C dna_sequences 2>/dev/null)${NC}\n"
 read -p " Awesome!"
 
-printf " \n\t\t${BLUE} "         
-echo " |===============          |    60%"                                                                    
-printf "\n${RESET}" 
+printf " \n\t\t${BLUE} "
+echo " |===============          |    60%"
+printf "\n${RESET}"
 
 ## REMOVING FILES
 read -p " Since our file is copied, we don't need it anymore. To delete it we will use the remove command."
@@ -261,16 +270,16 @@ printf " Go ahead, just enter ${RED}rm dna.txt ${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != "rm dna.txt" ]]
 do
-	printf " Please enter: ${RED}rm dna.txt${RESET}\n\t$ "
-	read -p "" dir
+    printf " Please enter: ${RED}rm dna.txt${RESET}\n\t$ "
+    read -p "" dir
 done
-printf " \t> ${GREEN}$(rm dna.txt 2>/dev/null)${NC}\n" 
+printf " \t> ${GREEN}$(rm dna.txt 2>/dev/null)${NC}\n"
 read -p " Awesome $username!"
 
 
-printf " \n\t\t${BLUE} "         
-echo " |================         |    64%"                                                                             
-printf "\n${RESET}"  
+printf " \n\t\t${BLUE} "
+echo " |================         |    64%"
+printf "\n${RESET}"
 
 ## REMOVING DIRECTORIES
 read -p " Also, since it's useless by now, we can delete the empty_folder. "
@@ -279,31 +288,31 @@ printf " Type: ${RED}rm -r empty_folder${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'rm -r empty_folder' ]]
 do
-	printf " Type: ${RED}rm -r empty_folder${RESET}\n\t$ "
-	read -p "" dir
+    printf " Type: ${RED}rm -r empty_folder${RESET}\n\t$ "
+    read -p "" dir
 done
-printf " \t> ${GREEN}$(rm -r empty_folder 2>/dev/null)${NC}\n" 
+printf " \t> ${GREEN}$(rm -r empty_folder 2>/dev/null)${NC}\n"
 read -p " You're nailing it!"
 
-printf " \n\t\t${BLUE} "   
-echo " |=================        |    68%"                                                                             
-printf "\n${RESET}" 
+printf " \n\t\t${BLUE} "
+echo " |=================        |    68%"
+printf "\n${RESET}"
 
 ## Ls
 printf " List the content of the directory to make sure that you have dont it right:\n\t$ "
 read -p "" dir
 while [[ $dir != 'ls' ]]
 do
-	printf " Type: ${RED}ls${RESET}\n\t$ "
-       	read -p "" dir
+    printf " Type: ${RED}ls${RESET}\n\t$ "
+    read -p "" dir
 done
 printf " \t> ${GREEN}$(ls -C 2>/dev/null)${NC}\n"
-read -p " You're nailing it!" 
+read -p " You're nailing it!"
 
 
-printf " \n\t\t${BLUE} "  
-echo " |==================       |    72%"                                                            
-printf "\n${RESET}" 
+printf " \n\t\t${BLUE} "
+echo " |==================       |    72%"
+printf "\n${RESET}"
 
 ## mv
 read -p " We will now copy the dna2.txt file to the dna_sequences folder. "
@@ -312,14 +321,14 @@ printf " Type: ${RED} mv dna2.txt dna_sequences${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'mv dna2.txt dna_sequences' ]]
 do
-	printf " Type: ${RED}mv dna2.txt dna_sequences${RESET}\n\t$ "
-	read -p "" dir
+    printf " Type: ${RED}mv dna2.txt dna_sequences${RESET}\n\t$ "
+    read -p "" dir
 done
-printf " \t> ${GREEN}$(mv dna2.txt dna_sequences 2>/dev/null)${NC}\n" 
+printf " \t> ${GREEN}$(mv dna2.txt dna_sequences 2>/dev/null)${NC}\n"
 read -p ""
 
-printf " \n\t\t${BLUE} " 
-echo " |==================       |    76%" 
+printf " \n\t\t${BLUE} "
+echo " |==================       |    76%"
 printf "\n${RESET}"
 
 
@@ -328,14 +337,14 @@ printf " Again, list the content of the directory to make sure that you have don
 read -p "" dir
 while [[ $dir != 'ls' ]]
 do
-	printf " Type: ${RED}ls${RESET}\n\t$ "
-	read -p "" dir
+    printf " Type: ${RED}ls${RESET}\n\t$ "
+    read -p "" dir
 done
-printf " \t> ${GREEN}$(ls -C 2>/dev/null)${NC}\n" 
+printf " \t> ${GREEN}$(ls -C 2>/dev/null)${NC}\n"
 read -p " Wow, you impress me!"
 
-printf " \n\t\t${BLUE} " 
-echo " |====================     |    80%"                                                 
+printf " \n\t\t${BLUE} "
+echo " |====================     |    80%"
 printf "\n${RESET}"
 
 
@@ -344,11 +353,11 @@ printf " Now,  navigate to the dna_sequences folder: \n\t$ "
 read -p "" dir
 while [[ $dir != 'cd dna_sequences' ]]
 do
-	printf " Type: ${RED}cd dna_sequences${RESET}\n\t$ "
-	read -p "" dir
+    printf " Type: ${RED}cd dna_sequences${RESET}\n\t$ "
+    read -p "" dir
 done
-printf " \t> ${GREEN}$(cd dna_sequences 2>/dev/null )${NC}\n" 
-read -p "" 
+printf " \t> ${GREEN}$(cd dna_sequences 2>/dev/null )${NC}\n"
+read -p ""
 
 printf " \n\t\t${BLUE} "
 echo " |====================     |    82%"
@@ -362,8 +371,8 @@ printf " Try for example to read the file 'dna.txt' using the ${RED}cat dna.txt$
 read -p "" dir
 while [[ $dir != 'cat dna.txt' ]]
 do
-	printf " Type: ${RED}cat dna.txt${RESET}\n\t$ "
-	read -p "" dir
+    printf " Type: ${RED}cat dna.txt${RESET}\n\t$ "
+    read -p "" dir
 done
 printf " \t> ${GREEN}$(cat dna_sequences/dna.txt)${NC}\n"
 read -p " Wow, pretty long right? "
@@ -374,21 +383,21 @@ printf " Type ${RED}head dna.txt${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'head dna.txt' ]]
 do
-	printf " Type ${RED}head dna.txt${RESET}\n\t$ "
-	read -p "" dir
+    printf " Type ${RED}head dna.txt${RESET}\n\t$ "
+    read -p "" dir
 done
-printf " \t> ${GREEN}$(head dna_sequences/dna.txt 2>/dev/null)${NC}\n" 
-read -p " That's much cleaner, right? " 
+printf " \t> ${GREEN}$(head dna_sequences/dna.txt 2>/dev/null)${NC}\n"
+read -p " That's much cleaner, right? "
 read -p " The ${RED}head${RESET} command accepts some options. "
 read -p " You can for example choose how many lines you want to read with the ${RED}-n${RESET} option. "
 printf " To print the first 3 lines of your file, enter ${RED}head -n3 dna.txt${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'head -n3 dna.txt' ]]
 do
-	printf " Type:  ${RED}head -n3 dna.txt${RESET}\n\t$ "
-	read -p "" dir
+    printf " Type:  ${RED}head -n3 dna.txt${RESET}\n\t$ "
+    read -p "" dir
 done
-printf " \t> ${GREEN}$(head -n3 dna_sequences/dna.txt 2>/dev/null)${NC}\n" 
+printf " \t> ${GREEN}$(head -n3 dna_sequences/dna.txt 2>/dev/null)${NC}\n"
 printf " \n\t\t${BLUE} "
 echo " |=======================  |    92%"
 printf "\n${RESET}"
@@ -399,10 +408,10 @@ printf " Enter ${RED}tail dna.txt${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'tail dna.txt' ]]
 do
-	printf " Please enter: ${RED}tail dna.txt${RESET}\n\t$ "
-	read -p "" dir
+    printf " Please enter: ${RED}tail dna.txt${RESET}\n\t$ "
+    read -p "" dir
 done
-printf " \t> ${GREEN}$(tail dna_sequences/dna.txt 2>/dev/null)${NC}\n" 
+printf " \t> ${GREEN}$(tail dna_sequences/dna.txt 2>/dev/null)${NC}\n"
 read -p " There are other widely used commands to read files that I will let you explore on your own. "
 read -p " For now, let's continue exploring our files. "
 read -p " You just saw that dna.txt was a pretty long file.  "
@@ -411,18 +420,18 @@ printf " To answer this question, we use the word count or wc command: ${RED}wc 
 read -p "" dir
 while [[ $dir != 'wc dna.txt' ]]
 do
-	printf " Please enter: ${RED}wc dna.txt${RESET}\n\t$ "
-	read -p "" dir
+    printf " Please enter: ${RED}wc dna.txt${RESET}\n\t$ "
+    read -p "" dir
 done
 printf " \t> ${GREEN}$(wc dna_sequences/dna.txt 2>/dev/null)${NC}\n"
 read -p " This command outputs the number of lines, the number of words and the number of characters your file contain. "
 read -p " You can also check how many lines are in the file: with the option -l. "
-printf " Type ${RED}wc -l dna.txt${RESET}\n\t$ " 
+printf " Type ${RED}wc -l dna.txt${RESET}\n\t$ "
 read -p "" dir
 while [[ $dir != 'wc -l dna.txt' ]]
 do
-	printf " Please enter: ${RED}wc -l dna.txt${RESET}\n\t$ "
-	read -p "" dir
+    printf " Please enter: ${RED}wc -l dna.txt${RESET}\n\t$ "
+    read -p "" dir
 done
 
-printf " \t> ${GREEN}$(wc -l dna_sequences/dna.txt 2>/dev/null)${NC}\n" 
+printf " \t> ${GREEN}$(wc -l dna_sequences/dna.txt 2>/dev/null)${NC}\n"
