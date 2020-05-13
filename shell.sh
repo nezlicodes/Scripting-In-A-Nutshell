@@ -22,15 +22,19 @@ show_error() {
     exit 1;
 }
 
+
+##Welcome and username
+printf "\t - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - -\n"
+printf "\t   Welcome to learn_shell. A program built by the digital-codon\n\t   platform, that teaches shell scripting inside the shell.\n"
+printf "\t - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+printf "\n"
 if [[ ! -f "$DNAFILE" ||  ! -f "$DNA2FILE" || ! -f "$DOTSECRET" || ! -d "$EMPTY_FOLDER" || -d "$DNA_SEQUENCES" ]];
 then
 	show_error
     exit 1
 fi
-##Welcome and username
-printf "\t - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - -\n"
-printf "\t   Welcome to learn_shell. A program built by the digital-codon\n\t   platform, that teaches shell scripting inside the shell.\n"
-printf "\t - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+
+
 printf "Instructions:\n"
 read -p " Press ${RED}enter${RESET} whenever you are ready to start. "
 printf " You can press ${RED}control + c${RESET} whenever you want to exit the program. "
