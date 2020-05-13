@@ -10,6 +10,7 @@ DNAFILE="$(pwd)/dna.txt"
 DNA2FILE="$(pwd)/dna2.txt"
 EMPTY_FOLDER="$(pwd)/empty_folder"
 DOTSECRET="$(pwd)/empty_folder/.secret"
+DNA_SEQUENCES="$(pwd)/dna_sequences"
 
 ## MY FUNCTIONS
 show_error() {
@@ -21,7 +22,7 @@ show_error() {
     exit 1;
 }
 
-if [[ ! -f "$DNAFILE" ||  ! -f "$DNA2FILE" || ! -f "$DOTSECRET" || ! -d "$EMPTY_FOLDER" ]];
+if [[ ! -f "$DNAFILE" ||  ! -f "$DNA2FILE" || ! -f "$DOTSECRET" || ! -d "$EMPTY_FOLDER" || -d "$DNA_SEQUENCES" ]];
 then
 	show_error
     exit 1
