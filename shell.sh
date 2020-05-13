@@ -153,7 +153,7 @@ printf "\n${RESET}"
 
 
 read -p " Practice time! "
-printf " List the content of this folder based on what you learned so far:\n\t$ID${BLUE}/empty_folder${RESET}$ "
+printf " List the content of this folder based on what you have learned so far:\n\t$ID${BLUE}/empty_folder${RESET}$ "
 read -p "" dir
 while [[ $dir != 'ls' ]]
 do
