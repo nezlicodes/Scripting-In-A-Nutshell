@@ -119,7 +119,7 @@ do
 done
 printf " \t$ID>  ${GREEN}$(ls -l)\n${NC}"
 
-read -p " As you can see, you have now a list of all files and directories with some attributes about each file like date and size. "
+read -p " As you can see, you have now an extended format of the content of your directory. "
 
 printf " \n\t${BLUE} "
 echo " | ========                                           |    23%"
