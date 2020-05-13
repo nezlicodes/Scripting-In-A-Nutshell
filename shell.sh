@@ -25,7 +25,7 @@ show_error() {
 
 ##Welcome and username
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - -\n"
-printf "\t   Welcome to Scripting In A Nutshell. An interactive program developped by DigitalCodon \n\t that teaches shell scripting inside the shell.\n"
+printf "\t   Welcome to Scripting In A Nutshell. An interactive program developped by DigitalCodon \n\t    that teaches shell scripting inside the shell.\n"
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n"
 printf "\n"
 if [[ ! -f "$DNAFILE" ||  ! -f "$DNA2FILE" || ! -f "$DOTSECRET" || ! -d "$EMPTY_FOLDER" || -d "$DNA_SEQUENCES" ]];
@@ -444,6 +444,8 @@ read -p ""
 
 ## GOODBYE
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - -\n"
-printf "\t   Scripting In A Nutshell. A program built by DigitalCodon\n\t, that teaches shell scripting inside the shell .\n"
+printf "\t   Scripting In A Nutshell. A program built by DigitalCodon\n\t   that teaches shell scripting inside the shell .\n"
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n"
 printf "\n"
+
+
