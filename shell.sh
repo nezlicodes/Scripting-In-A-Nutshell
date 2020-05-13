@@ -56,7 +56,7 @@ else
 fi
 
 printf " \n\t${BLUE} "
-echo " |=                         |    4%"
+echo " | ==                                                 |    4% "
 printf "\n${RESET}"
 
 ## PWD
@@ -72,7 +72,7 @@ printf "  \t> ${GREEN}$(pwd)${NC}\n"
 read -p " ${RED}pwd${RESET} stands for print working directory, it displays the full path of your directory."
 
 printf " \n\t${BLUE} "
-echo " |==                       |    9%"
+echo " | ====                                               |    9% "
 printf "\n${RESET}"
 
 
@@ -89,7 +89,7 @@ printf "  \t> ${GREEN}$(date 2>/dev/null)\n${NC}\n"
 read -p " Wow $username you learn so fast."
 
 printf " \n\t${BLUE} "
-echo " |===                      |    14%"
+echo " | ======                                             |    14%"
 printf "\n${RESET}"
 
 ## Ls
@@ -120,7 +120,7 @@ printf " \t> ${GREEN}$(ls -l)\n${NC}"
 read -p " As you can see, you have now a list of all files and directories with some attributes about each file like date and size. "
 
 printf " \n\t${BLUE} "
-echo " |====                     |    23%"
+echo " | ========                                           |    23%"
 printf "\n${RESET}"
 printf " You can also sort the files and directories by modification time using the ${RED}-t${RESET} option. Go ahead and try it out:\n\t\$ "
 read -p "" dir
@@ -144,7 +144,7 @@ done
 printf " \t> ${GREEN}$(cd empty_folder)\n${RESET}"
 
 printf " \n\t${BLUE} "
-echo " |======                   |    27%"
+echo " | ============                                       |    27%"
 printf "\n${RESET}"
 
 
@@ -161,7 +161,7 @@ read -p " Yeah! Keep the progress up! "
 
 
 printf " \n\t${BLUE} "
-echo " |========                   |    32%"
+echo " | ================                                   |    32%"
 printf "\n${RESET}"
 
 
@@ -179,7 +179,7 @@ do
 done
 printf " \t> ${GREEN}$(ls -Ca empty_folder)${NC}\n"
 printf " \n\t${BLUE} "
-echo " |=========                 |    37%"
+echo " | ==================                                 |    37%"
 printf "\n${RESET}"
 
 #READING FILES AND EXAMINING FILES
@@ -197,7 +197,7 @@ printf " \t> ${GREEN}$(cat empty_folder/.secret 2>/dev/null)${NC}\n"
 read -p " Spooky."
 
 printf " \n\t\t${BLUE} "
-echo " |===========              |    42%"
+echo " | ======================                             |    42%"
 printf "\n${RESET}"
 
 ## CD ..
@@ -215,7 +215,7 @@ read -p " Good."
 
 
 printf " \n\t\t${BLUE} "
-echo " |===========              |    47%"
+echo " | ======================                             |    47%"
 printf "\n${RESET}"
 
 ## Making directories.
@@ -234,7 +234,7 @@ done
 printf " \t> ${GREEN}$(mkdir dna_sequences 2>/dev/null)${RESET}"
 
 printf " \n\t\t${BLUE} "
-echo " |============             |    52%"
+echo " | ========================                           |    52%"
 printf "\n${RESET}"
 
 ## Copying files.
@@ -250,7 +250,7 @@ printf " \t> ${GREEN}$(cp dna.txt dna_sequences 2>/dev/null)${NC}\n"
 read -p " You got this! "
 
 printf " \n\t\t${BLUE} "
-echo " |==============           |    56%"
+echo " | ============================                       |    56%"
 printf "\n${RESET}"
 
 ## Ls /dir
@@ -266,7 +266,7 @@ printf " \t> ${GREEN}$(ls -C dna_sequences 2>/dev/null)${NC}\n"
 read -p " Awesome!"
 
 printf " \n\t\t${BLUE} "
-echo " |===============          |    60%"
+echo " | ==============================                     |    60%"
 printf "\n${RESET}"
 
 ## REMOVING FILES
@@ -283,7 +283,7 @@ read -p " Awesome $username!"
 
 
 printf " \n\t\t${BLUE} "
-echo " |================         |    64%"
+echo " | ================================                   |    64%"
 printf "\n${RESET}"
 
 ## REMOVING DIRECTORIES
@@ -300,7 +300,7 @@ printf " \t> ${GREEN}$(rm -r empty_folder 2>/dev/null)${NC}\n"
 read -p " You're nailing it!"
 
 printf " \n\t\t${BLUE} "
-echo " |=================        |    68%"
+echo " | ==================================                 |    68%"
 printf "\n${RESET}"
 
 ## Ls
@@ -316,7 +316,7 @@ read -p " You're nailing it!"
 
 
 printf " \n\t\t${BLUE} "
-echo " |==================       |    72%"
+echo " | ====================================               |    72%"
 printf "\n${RESET}"
 
 ## mv
@@ -333,7 +333,7 @@ printf " \t> ${GREEN}$(mv dna2.txt dna_sequences 2>/dev/null)${NC}\n"
 read -p ""
 
 printf " \n\t\t${BLUE} "
-echo " |==================       |    76%"
+echo " | ====================================               |    76%"
 printf "\n${RESET}"
 
 
@@ -349,7 +349,7 @@ printf " \t> ${GREEN}$(ls -C 2>/dev/null)${NC}\n"
 read -p " Wow, you impress me!"
 
 printf " \n\t\t${BLUE} "
-echo " |====================     |    80%"
+echo " | ========================================           |    80%"
 printf "\n${RESET}"
 
 
@@ -365,7 +365,7 @@ printf " \t> ${GREEN}$(cd dna_sequences 2>/dev/null )${NC}\n"
 read -p ""
 
 printf " \n\t\t${BLUE} "
-echo " |====================     |    82%"
+echo " | ========================================           |    82%"
 printf "\n${RESET}"
 
 
@@ -404,7 +404,7 @@ do
 done
 printf " \t> ${GREEN}$(head -n3 dna_sequences/dna.txt 2>/dev/null)${NC}\n"
 printf " \n\t\t${BLUE} "
-echo " |=======================  |    92%"
+echo " | ==============================================     |    92%"
 printf "\n${RESET}"
 
 ## TAIL
