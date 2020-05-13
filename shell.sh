@@ -96,7 +96,7 @@ printf "\n${RESET}"
 
 ## Ls
 read -p " Now, there are a bunch of files and folders in this directory. Let's explore them."
-printf  " To list all files and directories, we use the ${RED}ls${RESET} command.\n\t$ID$ "
+printf  " Enter ${RED}ls${RESET}:\n\t$ID$ "
 read -p "" dir
 while [[ $dir != "ls"  ]]
 do
@@ -106,6 +106,7 @@ done
 printf " \t$ID>  ${GREEN}$(ls -C)${NC}\n"
 
 read -p " Nice. "
+read -p " The ls command lists all files and directories in your current folder, "
 read -p " and like all unix commands, ${RED}ls${RESET} has a handful of useful options you can use. "
 read -p " Suppose you want more details about the files in this directory."
 read -p " You can very much do so using the -l option. "
