@@ -302,7 +302,7 @@ echo " | ==================================                 |    68%"
 printf "\n${RESET}"
 
 ## Ls
-printf " List the content of the directory to make sure that you have dont it right:\n\t$ID$ "
+printf " List the content of the directory to make sure that you have done it right:\n\t$ID$ "
 read -p "" dir
 while [[ $dir != 'ls' ]]
 do
