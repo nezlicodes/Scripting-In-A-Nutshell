@@ -10,7 +10,7 @@ DNAFILE="$(pwd)/dna.txt"
 DNA2FILE="$(pwd)/dna2.txt"
 EMPTY_FOLDER="$(pwd)/empty_folder"
 DOTSECRET="$(pwd)/empty_folder/.secret"
-DNA_SEQUENCES="$(pwd)/dna_sequences"
+DNA_SEQUENCES="$(pwd)${BLUE}/dna_sequences${RESET}"
 
 ## MY FUNCTIONS
 show_error() {
@@ -269,7 +269,7 @@ printf "\n${RESET}"
 
 ## REMOVING FILES
 read -p " Since our file is copied, we don't need it anymore. To delete it we will use the remove command."
-printf " Go ahead, just enter ${RED}rm dna.txt ${RESET}\n\t$ID$ "
+printf " Go ahead, type ${RED}rm dna.txt ${RESET}\n\t$ID$ "
 read -p "" dir
 while [[ $dir != "rm dna.txt" ]]
 do
@@ -309,8 +309,8 @@ do
     printf " Type: ${RED}ls${RESET}\n\t$ID$ "
     read -p "" dir
 done
-printf " \t$ID>  ${GREEN}$(ls -C 2>/dev/null)${NC}\n"
-read -p " You're nailing it!"
+printf " \t$ID> ${GREEN}$(ls -C 2>/dev/null)${NC}\n"
+read -p " You are nailing it!"
 
 
 printf " \n\t\t${BLUE} "
@@ -319,16 +319,16 @@ printf "\n${RESET}"
 
 ## mv
 read -p " We will now copy the dna2.txt file to the dna_sequences folder. "
-read -p " This time, we will not use the ${RED}cp${RESET} command but rather the ${RED}mv${RESET} 'move' command"
+read -p " This time, we will not use the ${RED}cp${RESET} command but rather the ${RED}mv${RESET} -move- command"
 printf " Type: ${RED} mv dna2.txt dna_sequences${RESET}\n\t$ID$ "
 read -p "" dir
-while [[ $dir != 'mv dna2.txt dna_sequences' ]]
+while [[ $dir != "mv dna2.txt dna_sequences" ]]
 do
     printf " Type: ${RED}mv dna2.txt dna_sequences${RESET}\n\t$ID$ "
     read -p "" dir
 done
-printf " \t$ID>  ${GREEN}$(mv dna2.txt dna_sequences 2>/dev/null)${NC}\n"
-read -p ""
+printf " \t$ID> ${GREEN}$(mv dna2.txt dna_sequences 2>/dev/null)${NC}\n"
+read -p " Keep going!"
 
 printf " \n\t\t${BLUE} "
 echo " | ====================================               |    76%"
@@ -359,7 +359,7 @@ do
     printf " Type: ${RED}cd dna_sequences${RESET}\n\t$ID$ "
     read -p "" dir
 done
-printf " \t$ID/dna_sequences> ${GREEN}$(cd dna_sequences 2>/dev/null )${NC}\n"
+printf " \t$ID${BLUE}/dna_sequences${RESET}> ${GREEN}$(cd dna_sequences 2>/dev/null )${NC}\n"
 read -p ""
 
 printf " \n\t\t${BLUE} "
@@ -370,71 +370,78 @@ printf "\n${RESET}"
 ## Cat AND HEAD
 read -p " We just learned about the ${RED}cat${RESET} command that allows you to read a file. "
 read -p " Most of the times though, your files are too long to be printed all at once. "
-printf " Try for example to read the file 'dna.txt' using the ${RED}cat dna.txt${RESET} command\n\t$ID/dna_sequences$ "
+printf " Try for example to read the file 'dna.txt' using the ${RED}cat dna.txt${RESET} command\n\t$ID${BLUE}/dna_sequences${RESET}$ "
 read -p "" dir
 while [[ $dir != 'cat dna.txt' ]]
 do
-    printf " Type: ${RED}cat dna.txt${RESET}\n\t$ID/dna_sequences$ "
+    printf " Type: ${RED}cat dna.txt${RESET}\n\t$ID${BLUE}/dna_sequences${RESET}$ "
     read -p "" dir
 done
-printf " \t$ID/dna_sequences> ${GREEN}$(cat dna_sequences/dna.txt)${NC}\n"
+printf " \t$ID${BLUE}/dna_sequences${RESET}> ${GREEN}$(cat dna_sequences/dna.txt)${NC}\n"
 read -p " Wow, pretty long right? "
 read -p " What if instead you just want to check the first few lines only? "
 read -p " There is a special command that allows you to do just that. "
 read -p " It is the ${RED}head${RESET} command, it only prints the first 10 lines of your file. "
-printf " Type ${RED}head dna.txt${RESET}\n\t$ID/dna_sequences$ "
+printf " Type ${RED}head dna.txt${RESET}\n\t$ID${BLUE}/dna_sequences${RESET}$ "
 read -p "" dir
 while [[ $dir != 'head dna.txt' ]]
 do
-    printf " Type ${RED}head dna.txt${RESET}\n\t$ID/dna_sequences$ "
+    printf " Type ${RED}head dna.txt${RESET}\n\t$ID${BLUE}/dna_sequences${RESET}$ "
     read -p "" dir
 done
-printf " \t$ID/dna_sequences> ${GREEN}$(head dna_sequences/dna.txt 2>/dev/null)${NC}\n"
+printf " \t$ID${BLUE}/dna_sequences${RESET}> ${GREEN}$(head dna_sequences/dna.txt 2>/dev/null)${NC}\n"
 read -p " That's much cleaner, right? "
 read -p " The ${RED}head${RESET} command accepts some options. "
 read -p " You can for example choose how many lines you want to read with the ${RED}-n${RESET} option. "
-printf " To print the first 3 lines of your file, enter ${RED}head -n3 dna.txt${RESET}\n\t$ID/dna_sequences$ "
+printf " To print the first 3 lines of your file, enter ${RED}head -n3 dna.txt${RESET}\n\t$ID${BLUE}/dna_sequences${RESET}$ "
 read -p "" dir
 while [[ $dir != 'head -n3 dna.txt' ]]
 do
-    printf " Type:  ${RED}head -n3 dna.txt${RESET}\n\t$ID/dna_sequences$ "
+    printf " Type:  ${RED}head -n3 dna.txt${RESET}\n\t$ID${BLUE}/dna_sequences${RESET}$ "
     read -p "" dir
 done
-printf " \t$ID/dna_sequences> ${GREEN}$(head -n3 dna_sequences/dna.txt 2>/dev/null)${NC}\n"
+printf " \t$ID${BLUE}/dna_sequences${RESET}> ${GREEN}$(head -n3 dna_sequences/dna.txt 2>/dev/null)${NC}\n"
 printf " \n\t\t${BLUE} "
 echo " | ==============================================     |    92%"
 printf "\n${RESET}"
 
 ## TAIL
 read -p " Alternatively, the ${RED}tail${RESET} command outputs the last lines of your files. "
-printf " Enter ${RED}tail dna.txt${RESET}\n\t$ID/dna_sequences$ "
+printf " Enter ${RED}tail dna.txt${RESET}\n\t$ID${BLUE}/dna_sequences${RESET}$ "
 read -p "" dir
 while [[ $dir != 'tail dna.txt' ]]
 do
-    printf " Please enter: ${RED}tail dna.txt${RESET}\n\t$ID/dna_sequences$ "
+    printf " Please enter: ${RED}tail dna.txt${RESET}\n\t$ID${BLUE}/dna_sequences${RESET}$ "
     read -p "" dir
 done
-printf " \t$ID/dna_sequences> ${GREEN}$(tail dna_sequences/dna.txt 2>/dev/null)${NC}\n"
+printf " \t$ID${BLUE}/dna_sequences${RESET}> ${GREEN}$(tail dna_sequences/dna.txt 2>/dev/null)${NC}\n"
 read -p " There are other widely used commands to read files that I will let you explore on your own. "
 read -p " For now, let's continue exploring our files. "
 read -p " You just saw that dna.txt was a pretty long file.  "
 read -p " But how many words exactly does it contain? "
-printf " To answer this question, we use the word count or wc command: ${RED}wc dna.txt${RESET}\n\t$ID/dna_sequences$ "
+printf " To answer this question, we use the word count or wc command: ${RED}wc dna.txt${RESET}\n\t$ID${BLUE}/dna_sequences${RESET}$ "
 read -p "" dir
 while [[ $dir != 'wc dna.txt' ]]
 do
-    printf " Please enter: ${RED}wc dna.txt${RESET}\n\t$ID/dna_sequences$ "
+    printf " Please enter: ${RED}wc dna.txt${RESET}\n\t$ID${BLUE}/dna_sequences${RESET}$ "
     read -p "" dir
 done
-printf " \t$ID/dna_sequences> ${GREEN}$(wc dna_sequences/dna.txt 2>/dev/null)${NC}\n"
+printf " \t$ID${BLUE}/dna_sequences${RESET}> ${GREEN}$(wc dna_sequences/dna.txt 2>/dev/null)${NC}\n"
 read -p " This command outputs the number of lines, the number of words and the number of characters your file contain. "
 read -p " You can also check how many lines are in the file: with the option -l. "
-printf " Type ${RED}wc -l dna.txt${RESET}\n\t$ID/dna_sequences$ "
+printf " Type ${RED}wc -l dna.txt${RESET}\n\t$ID${BLUE}/dna_sequences${RESET}$ "
 read -p "" dir
 while [[ $dir != 'wc -l dna.txt' ]]
 do
-    printf " Please enter: ${RED}wc -l dna.txt${RESET}\n\t$ID/dna_sequences$ "
+    printf " Please enter: ${RED}wc -l dna.txt${RESET}\n\t$ID${BLUE}/dna_sequences${RESET}$ "
     read -p "" dir
 done
 
-printf " \t$ID/dna_sequences> ${GREEN}$(wc -l dna_sequences/dna.txt 2>/dev/null)${NC}\n"
+printf " \t$ID${BLUE}/dna_sequences${RESET}> ${GREEN}$(wc -l dna_sequences/dna.txt 2>/dev/null)${NC}\n"
+
+
+## GOODBYE
+printf "\t - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - -\n"
+printf "\t   Welcome to learn_shell. A program built by the digital-codon\n\t   platform, that teaches shell scripting inside the shell.\n"
+printf "\t - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n"
+printf "\n"
