@@ -245,7 +245,8 @@ do
 	printf " Please enter: ${RED}ls${RESET}\n\t$ID$ "
 	read -p "" dir
 done
-printf " \t$ID> ${GREEN}$(ls)${RESET}"
+printf " \t$ID> ${GREEN}$(ls)${RESET}\n"
+read -p " You rock! "
 
 ## Copying files.
 read -p " The next step is obviously copying the dna.txt file in that folder. "
