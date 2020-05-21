@@ -200,7 +200,7 @@ echo " | ======================                             |    42%"
 printf "\n${RESET}"
 
 ## CD ..
-read -p " It's time to learn manipulating our dna.txt file. "
+read -p " It's time to learn to manipulate our dna.txt file. "
 read -p " First off, we need to navigate back to the parent directory. "
 printf " Type the command ${RED}cd ..${RESET}\n\t$ID${BLUE}/empty_folder${RESET}$ "
 read -p "" dir
@@ -235,6 +235,17 @@ printf " \t$ID>  ${GREEN}$(mkdir dna_sequences 2>/dev/null)${RESET}"
 printf " \n\t\t${BLUE} "
 echo " | ========================                           |    52%"
 printf "\n${RESET}"
+
+## CHECKING that dna_sequences has been created
+read -p " Let us make sure that the directory has been created correctly. "
+printf " List the content of your working directory\n\t$ID$ "
+read -p "" dir
+while [[ $dir != "ls" ]]
+do
+	printf " Please enter: ${RED}ls${RESET}\n\t$ID$ "
+	read -p "" dir
+done
+printf " \t$ID> ${GREEN}$(ls)${RESET}"
 
 ## Copying files.
 read -p " The next step is obviously copying the dna.txt file in that folder. "
