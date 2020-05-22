@@ -1,10 +1,10 @@
 #!/bin/bash
 
 GREEN='\033[0;33m'
-CC=$(tput sgr0)
-NC=$(tput sgr0)
-BLUE=$(tput sgr0)
-RED=$(tput sgr0)
+CC='\033[0;35m'
+NC='\033[0m'
+BLUE='\033[0;34m'
+RED=' \e[38;2;255;0;0m  \e[48;2;0;0;0m  '
 RESET=$(tput sgr0)
 DNAFILE="$(pwd)/dna.txt"
 DNA2FILE="$(pwd)/dna2.txt"
@@ -12,6 +12,8 @@ EMPTY_FOLDER="$(pwd)/empty_folder"
 DOTSECRET="$(pwd)/empty_folder/.secret"
 DNA_SEQUENCES="$(pwd)${BLUE}/dna_sequences${RESET}"
 
+
+export PS1='\e[0;34m\u@\h:\W$\e[m'
 ## MY FUNCTIONS
 show_error() {
     read -p " Oops, it looks like there is an error.. "
@@ -36,7 +38,8 @@ fi
 
 
 printf "Instructions:\n"
-read -p " Press ${RED}enter${RESET} whenever you are ready to start. "
+printf " Press ${RED}enter${RESET} whenever you are ready to start. "
+dir " "
 printf " You can press ${RED}control + c${RESET} whenever you want to exit the program. "
 read -p " Got it? "
 read -p " Cool ! "
