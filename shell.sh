@@ -40,12 +40,14 @@ read -p ""
 printf " You can press ${RED}control + c${RESET} whenever you want to exit the program. "
 read -p " Got it? "
 read -p " Cool ! "
-read -p " By the way, what may I call you? " username
+printf " By the way, what may I call you?\n\t> "
+read -p "" username
 if [[ $username ]];
 then
     read -p " Okay $username let's get started! "
 else
-    read -p " Are you sure you don't want to tell me your name? " username
+    printf " Are you sure you don't want to tell me your name?\n\t> "
+    read -p "" username
     if [[ $username ]];
     then
         read -p " Okay $username let's get started! "
