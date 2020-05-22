@@ -1,10 +1,10 @@
 #!/bin/bash
 
-GREEN='\033[0;33m'
-CC='\033[0;35m'
-NC='\033[0m'
-BLUE='\033[0;34m'
-RED=$(tput setaf 1)
+GREEN=$(tput sgr0)
+CC=$(tput sgr0)
+NC=$(tput sgr0)
+BLUE=$(tput sgr0)
+RED='\e[1;97;41m'
 RESET=$(tput sgr0)
 DNAFILE="$(pwd)/dna.txt"
 DNA2FILE="$(pwd)/dna2.txt"
@@ -36,7 +36,8 @@ fi
 
 
 printf "Instructions:\n"
-read -p " Press ${RED}enter${RESET} whenever you are ready to start. "
+printf " Press ${RED}enter${RESET} whenever you are ready to start. "
+read -p ""
 printf " You can press ${RED}control + c${RESET} whenever you want to exit the program. "
 read -p " Got it? "
 read -p " Cool ! "
@@ -71,7 +72,8 @@ do
     read -p "" dir
 done
 printf "  \t$ID>  ${GREEN}$(pwd)${NC}\n"
-read -p " ${RED}pwd${RESET} stands for print working directory, it displays the full path of your directory."
+printf " ${RED}pwd${RESET} stands for print working directory, it displays the full path of your directory." 
+read -p ""
 
 printf " \n\t${BLUE} "
 echo " | ====                                               |    9% "
@@ -107,7 +109,8 @@ printf " \t$ID>  ${GREEN}$(ls -C)${NC}\n"
 
 read -p " Nice. "
 read -p " The ls command lists all files and directories in your current folder, "
-read -p " and like all unix commands, ${RED}ls${RESET} has a handful of useful options you can use. "
+printf " and like all unix commands, ${RED}ls${RESET} has a handful of useful options you can use. "
+read -p " "
 read -p " Suppose you want more details about the files in this directory."
 read -p " You can very much do so using the -l option. "
 printf " To see this it in action, type ${RED}ls -l${RESET}\n\t$ID$ "
@@ -135,7 +138,8 @@ printf " \t$ID>  ${GREEN}$(ls -Ct)\n${RESET}"
 read -p " You're nailing it!"
 
 read -p " Alright now, let's navigate to the empty_folder to see if it is truely empty. "
-read -p " We will use the change directory or ${RED}cd${RESET} command."
+printf " We will use the change directory or ${RED}cd${RESET} command."
+read -p ""
 printf " Type ${RED}cd empty_folder${RESET}\n\t$ID$ "
 read -p "" dir
 while [[ $dir != 'cd empty_folder' ]]
@@ -184,7 +188,8 @@ printf "\n${RESET}"
 ## READING FILES AND EXAMINING FILES
 read -p " I bet you want to know what kind of dark secret is hidden in the .secret file, don't you? "
 read -p " Well, that's good because you are about to learn how to examine a file. "
-read -p " To read the content of a file, you have to execute the command ${RED}cat filename${RESET}"
+printf " To read the content of a file, you have to execute the command ${RED}cat filename${RESET}"
+read -p " "
 printf " Type ${RED}cat .secret${RESET}\n\t$ID${BLUE}/empty_folder${RESET}$ "
 read -p "" dir
 while [[ $dir != 'cat .secret' ]]
@@ -222,7 +227,8 @@ read -p " One important piece of bioinformatics is project organization. "
 read -p " It is quite important to have a well organized working directory because files add up really fast "
 read -p " and if you don't have a way of organizing your files, you will easily lose track. "
 read -p " We will create a folder in which we will put all our dna.txt files. "
-read -p " Todo this, we will make use of the make directory or ${RED}mkdir${RESET} command. "
+printf " Todo this, we will make use of the make directory or ${RED}mkdir${RESET} command. "
+read -p " "
 printf " Type: ${RED}mkdir dna_sequences${RESET}\n\t$ID$ "
 read -p "" dir
 while [[ $dir != "mkdir dna_sequences" ]]
@@ -332,7 +338,8 @@ printf "\n${RESET}"
 
 ## mv
 read -p " We will now copy the dna2.txt file to the dna_sequences folder. "
-read -p " This time, we will not use the ${RED}cp${RESET} command but rather the ${RED}mv${RESET} -move- command"
+printf " This time, we will not use the ${RED}cp${RESET} command but rather the ${RED}mv${RESET} -move- command"
+read -p
 printf " Type: ${RED} mv dna2.txt dna_sequences${RESET}\n\t$ID$ "
 read -p "" dir
 while [[ $dir != "mv dna2.txt dna_sequences" ]]
@@ -381,7 +388,8 @@ printf "\n${RESET}"
 
 
 ## Cat AND HEAD
-read -p " We just learned about the ${RED}cat${RESET} command that allows you to read a file. "
+printf " We just learned about the ${RED}cat${RESET} command that allows you to read a file. "
+read -p ""
 read -p " Most of the times though, your files are too long to be printed all at once. "
 printf " Try for example to read the file 'dna.txt' using the ${RED}cat dna.txt${RESET} command\n\t$ID${BLUE}/dna_sequences${RESET}$ "
 read -p "" dir
@@ -394,7 +402,8 @@ printf " \t$ID${BLUE}/dna_sequences${RESET}> ${GREEN}$(cat dna_sequences/dna.txt
 read -p " Wow, pretty long right? "
 read -p " What if instead you just want to check the first few lines only? "
 read -p " There is a special command that allows you to do just that. "
-read -p " It is the ${RED}head${RESET} command, it only prints the first 10 lines of your file. "
+printf " It is the ${RED}head${RESET} command, it only prints the first 10 lines of your file. "
+read -p " "
 printf " Type ${RED}head dna.txt${RESET}\n\t$ID${BLUE}/dna_sequences${RESET}$ "
 read -p "" dir
 while [[ $dir != 'head dna.txt' ]]
@@ -404,8 +413,10 @@ do
 done
 printf " \t$ID${BLUE}/dna_sequences${RESET}> ${GREEN}$(head dna_sequences/dna.txt 2>/dev/null)${NC}\n"
 read -p " That's much cleaner, right? "
-read -p " The ${RED}head${RESET} command accepts some options. "
-read -p " You can for example choose how many lines you want to read with the ${RED}-n${RESET} option. "
+printf " The ${RED}head${RESET} command accepts some options. "
+read -p " "
+printf " You can for example choose how many lines you want to read with the ${RED}-n${RESET} option. "
+read -p ""
 printf " To print the first 3 lines of your file, enter ${RED}head -n3 dna.txt${RESET}\n\t$ID${BLUE}/dna_sequences${RESET}$ "
 read -p "" dir
 while [[ $dir != 'head -n3 dna.txt' ]]
@@ -419,7 +430,8 @@ echo " | ==============================================     |    92%"
 printf "\n${RESET}"
 
 ## TAIL
-read -p " Alternatively, the ${RED}tail${RESET} command outputs the last lines of your files. "
+printf -p " Alternatively, the ${RED}tail${RESET} command outputs the last lines of your files. "
+read -p " "
 printf " Enter ${RED}tail dna.txt${RESET}\n\t$ID${BLUE}/dna_sequences${RESET}$ "
 read -p "" dir
 while [[ $dir != 'tail dna.txt' ]]
@@ -459,5 +471,3 @@ printf "\t - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - -\n"
 printf "\t   Scripting In A Nutshell. A program built by DigitalCodon that teaches shell scripting inside the shell .\n"
 printf "\t - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n"
 printf "\n"
-
-
