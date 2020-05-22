@@ -16,7 +16,7 @@ DNA_SEQUENCES="$(pwd)${BLUE}/dna_sequences${RESET}"
 show_error() {
     read -p " Oops, it looks like there is an error.. "
     read -p " If this is your first time running the program, please report this problem at: benmeradi.lilyanezli@gmail.com"
-    read -p " If you already ran this program once, make sure your working directory is set just as you've downloaded it the first time. "
+    read -p " If you already ran this program once, make sure your working directory is set just as it was when you've downloaded it the first time. "
     read -p " Or even better, I challenge you to set it back yourself using the command line! "
 	read -p " All initial files are in the backup folder. "
     
