@@ -19,7 +19,6 @@ show_error() {
     read -p " If you already ran this program once, make sure your working directory is set just as it was you've downloaded it the first time. "
     read -p " Or even better, I challenge you to set it back yourself using the command line! "
 	read -p " All initial files are in the backup folder. "
-    
     exit 1;
 }
 
@@ -339,7 +338,7 @@ printf "\n${RESET}"
 ## mv
 read -p " We will now copy the dna2.txt file to the dna_sequences folder. "
 printf " This time, we will not use the ${RED}cp${RESET} command but rather the ${RED}mv${RESET} -move- command"
-read -p
+read -p ""
 printf " Type: ${RED} mv dna2.txt dna_sequences${RESET}\n\t$ID$ "
 read -p "" dir
 while [[ $dir != "mv dna2.txt dna_sequences" ]]
@@ -372,7 +371,7 @@ printf "\n${RESET}"
 
 
 ## cd dna_sequences
-printf " Now,  navigate to the dna_sequences folder: \n\t$ID$ "
+printf " Now, navigate to the dna_sequences folder to further explore our files: \n\t$ID$ "
 read -p "" dir
 while [[ $dir != 'cd dna_sequences' ]]
 do
