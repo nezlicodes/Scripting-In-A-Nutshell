@@ -1,9 +1,10 @@
 #!/bin/bash
 
 GREEN='\033[0;33m'
+CC='\033[0;35m'
 NC='\033[0m'
 BLUE='\033[0;34m'
-RED='\e[38;2;255;0;0m \e[48;2;0;0;0m  '
+RED=$(tput setaf 1)
 RESET=$(tput sgr0)
 DNAFILE="$(pwd)/dna.txt"
 DNA2FILE="$(pwd)/dna2.txt"
@@ -11,13 +12,11 @@ EMPTY_FOLDER="$(pwd)/empty_folder"
 DOTSECRET="$(pwd)/empty_folder/.secret"
 DNA_SEQUENCES="$(pwd)${BLUE}/dna_sequences${RESET}"
 
-
-export PS1='\e[0;34m\u@\h:\W$\e[m'
 ## MY FUNCTIONS
 show_error() {
     read -p " Oops, it looks like there is an error.. "
     read -p " If this is your first time running the program, please report this problem at: benmeradi.lilyanezli@gmail.com"
-    read -p " If you already ran this program once, make sure your working directory is set just as it was when you've downloaded it the first time. "
+    read -p " If you already ran this program once, make sure your working directory is set just as it was you've downloaded it the first time. "
     read -p " Or even better, I challenge you to set it back yourself using the command line! "
 	read -p " All initial files are in the backup folder. "
     
@@ -37,8 +36,7 @@ fi
 
 
 printf "Instructions:\n"
-printf " Press ${RED}enter${RESET} whenever you are ready to start. "
-dir " "
+read -p " Press ${RED}enter${RESET} whenever you are ready to start. "
 printf " You can press ${RED}control + c${RESET} whenever you want to exit the program. "
 read -p " Got it? "
 read -p " Cool ! "
